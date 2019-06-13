@@ -23,11 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
-    }
-    
-    public function prueba($p,$m)
-    {
-        return $p . $m;
+        return view('phiorganic');
     }
 }

@@ -11,29 +11,27 @@
 |
 */
 
-Route::get('/plantilla', function () {
-  return view('plantilla');
-});
 
-Route::get('/home', function () {
-  return view('home');
+/* YA SE CREO CON EL AUTH
+Route::get('/registro', function () {
+    return view('registro');
 });
 
 Route::get('/login', function () {
-  return view('login');
-});
+    return view('login');
+});  */                                 
 
-Route::get('/registro', function () {
-  return view('registro');
+Route::get('/phiorganic', function () {
+    return view('phiorganic');
 });
 
 Route::get('/perfil', function () {
-  return view('perfil');
+    return view('perfil');
 });
 
 Route::get('/faq', function () {
-  return view('faq');
+    return view('faq');
 });
-
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');;
+
+//Route::get('/home', 'HomeController@index')->name('home');

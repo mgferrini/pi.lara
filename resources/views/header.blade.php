@@ -1,7 +1,7 @@
 <header>
     <div class="row">
         <div class="col-md-3">
-            <a class="logo" href="home"><img src="img/logo_hoja.png" width="300" alt="logo" ></a>    
+            <a class="logo" href="phiorganic"><img src="img/logo_hoja.png" width="300" alt="logo" ></a>    
         </div>
         <div class="col-md-9">
 	        <nav class="navbar navbar-expand-lg">
@@ -22,7 +22,7 @@
                                     <a class="dropdown-item" href="login"><i class="navuser">Login</i></a>
                                  @endif 
                                 @if(!isset($_SESSION["nombre"]))
-                                    <a class="dropdown-item" href="registro"><i class="navuser">Registrarse</i></a> 
+                                    <a class="dropdown-item" href="register"><i class="navuser">Registrarse</i></a> 
                                 @endif
                                 @if(isset($_SESçSION["nombre"]))
                                      <a class="dropdown-item" href="?page=perfil"><i class="navuser">Editar Perfil</i></a> 

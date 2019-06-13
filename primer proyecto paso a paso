@@ -1,0 +1,9 @@
+git init
+git add .
+git config --global user.name "mgferrini"
+git config --global user.email marcos.ferrini@gmail.com
+git commit -m "Initial"
+git remote add origin https://github.com/mgferrini/lara.git
+git push -u origin master
+
+https://laravel-news.com/your-first-laravel-application

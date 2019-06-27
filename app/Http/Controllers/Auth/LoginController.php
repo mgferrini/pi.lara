@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\User;
+
 
 class LoginController extends Controller
 {
@@ -36,4 +38,21 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function store(Request $request)
+    {
+      $message=[
+        'email' => 'El email es invalido',
+        'password' => 'La contraseña no es correcta'
+      ];
+      $validations=[
+        'email' => 'required|unique:users|max:255',
+        'password' => 'required|max:100',
+      ];
+
+      $this->validate($request,$validations,$message);
+
+      $actor = User::create($request->all());
+    }
+
 }

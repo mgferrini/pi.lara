@@ -1,7 +1,7 @@
 <header>
     <div class="row">
         <div class="col-md-3">
-            <a class="logo" href="phiorganic"><img src="img/logo_hoja.png" width="300" alt="logo" ></a>    
+            <a class="logo" href="phiorganic"><img src="img/logo_hoja.png" width="300" alt="logo" ></a>
         </div>
         <div class="col-md-9">
 	        <nav class="navbar navbar-expand-lg">
@@ -15,22 +15,22 @@
 	                    </li>
 	                    <li class="nav-item dropdown">
 	                        <a class="nav-link navflecha dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	                            <i class="fas fa-user-plus fa-md icon"></i> 
-	                        </a>  
+	                            <i class="fas fa-user-plus fa-md icon"></i>
+	                        </a>
 	                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 @if(!isset($_SESSION["nombre"]))
-                                    <a class="dropdown-item" href="login"><i class="navuser">Login</i></a>
-                                 @endif 
+                                    <a class="dropdown-item" href="/login"><i class="navuser">Login</i></a>
+                                 @endif
                                 @if(!isset($_SESSION["nombre"]))
-                                    <a class="dropdown-item" href="register"><i class="navuser">Registrarse</i></a> 
+                                    <a class="dropdown-item" href="/register"><i class="navuser">Registrarse</i></a>
                                 @endif
-                                @if(isset($_SESçSION["nombre"]))
-                                     <a class="dropdown-item" href="?page=perfil"><i class="navuser">Editar Perfil</i></a> 
+                                @if(isset($_SESSION["nombre"]))
+                                     <a class="dropdown-item" href="?page=perfil"><i class="navuser">Editar Perfil</i></a>
                                 @endif
                                 @if(isset($_SESSION["nombre"]))
                                     <a class="dropdown-item" href="?page=logout"><i class="navuser">Logout</i></a>
                                 @endif
-	                        </div>  
+	                        </div>
 	                    </li>
 	                    <li class="nav-item">
 	                        <a class="nav-link" href="#">
@@ -40,6 +40,5 @@
 	                 </ul>
 	            </div>
 	        </nav>
-        </div>	
+        </div>
     </div>
-

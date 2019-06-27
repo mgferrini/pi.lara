@@ -12,14 +12,16 @@
 */
 
 
-/* YA SE CREO CON EL AUTH
-Route::get('/registro', function () {
-    return view('registro');
-});
+// YA SE CREO CON EL AUTH
+// Route::get('/registro', function () {
+//     return view('registro');
+// });
 
-Route::get('/login', function () {
-    return view('login');
-});  */                                 
+// Route::get('/login', function () {
+//     return view('login');
+// });
+
+Route::post('/login', 'LoginController@store');
 
 Route::get('/phiorganic', function () {
     return view('phiorganic');
@@ -32,6 +34,7 @@ Route::get('/perfil', function () {
 Route::get('/faq', function () {
     return view('faq');
 });
+
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');

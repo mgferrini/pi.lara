@@ -21,8 +21,6 @@
 //     return view('login');
 // });
 
-Route::post('/login', 'LoginController@store');
-
 Route::get('/phiorganic', function () {
     return view('phiorganic');
 });
@@ -36,5 +34,10 @@ Route::get('/faq', function () {
 });
 
 Auth::routes();
+
+Route::get('logout', function () {
+  auth()->logout();
+  return redirect('/phiorganic');
+});
 
 //Route::get('/home', 'HomeController@index')->name('home');

@@ -8,9 +8,9 @@
 	            <div class="collapse navbar-collapse navOrder collapse show" id="navbarSupportedContent">
 	                <ul class="navbar-nav flex-row">
 	                    <li class="nav-item flex-nowrap">
-                            @if(isset($_SESSION["nombre"]))
-                            <img height="35" width="35" class="img-fluid rounded-circle" src="{{ asset('imagenes/' . $_SESSION['avatar']) }}">
-                            {{ "&nbsp;&nbsp; Hola &nbsp;" . $_SESSION["nombre"] . "&nbsp!" }}
+                            @if(auth()->check())
+                            <img height="35" width="35" class="img-fluid rounded-circle" src="{{ asset('imagenes/' . auth()->user()->avatar) }}">
+                            {{ auth()->user()->first_name }}
 	                        @endif
 	                    </li>
 	                    <li class="nav-item dropdown">
@@ -18,18 +18,13 @@
 	                            <i class="fas fa-user-plus fa-md icon"></i>
 	                        </a>
 	                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                @if(!isset($_SESSION["nombre"]))
-                                    <a class="dropdown-item" href="/login"><i class="navuser">Login</i></a>
-                                 @endif
-                                @if(!isset($_SESSION["nombre"]))
-                                    <a class="dropdown-item" href="/register"><i class="navuser">Registrarse</i></a>
-                                @endif
-                                @if(isset($_SESSION["nombre"]))
-                                     <a class="dropdown-item" href="?page=perfil"><i class="navuser">Editar Perfil</i></a>
-                                @endif
-                                @if(isset($_SESSION["nombre"]))
-                                    <a class="dropdown-item" href="?page=logout"><i class="navuser">Logout</i></a>
-                                @endif
+                            @if(auth()->check())
+                              <a class="dropdown-item" href="?page=perfil"><i class="navuser">Editar Perfil</i></a>
+                              <a class="dropdown-item" href="logout"><i class="navuser">Logout</i></a>
+                            @else
+                              <a class="dropdown-item" href="/login"><i class="navuser">Login</i></a>
+                              <a class="dropdown-item" href="/register"><i class="navuser">Registrarse</i></a>
+                            @endif
 	                        </div>
 	                    </li>
 	                    <li class="nav-item">

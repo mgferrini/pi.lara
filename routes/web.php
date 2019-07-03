@@ -21,7 +21,7 @@
 //     return view('login');
 // });
 
-Route::get('/phiorganic', function () {
+Route::get('/', function () {
     return view('phiorganic');
 });
 

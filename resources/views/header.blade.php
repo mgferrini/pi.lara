@@ -9,7 +9,7 @@
 	                <ul class="navbar-nav flex-row">
 	                    <li class="nav-item flex-nowrap">
                             @if(auth()->check())
-                            <img height="35" width="35" class="img-fluid rounded-circle" src="{{ asset('imagenes/' . auth()->user()->avatar) }}">
+                            <img height="35" width="35" class="img-fluid rounded-circle" src="{{ asset('storage/avatars/' . auth()->user()->avatar) }}">
                             {{ auth()->user()->first_name }}
 	                        @endif
 	                    </li>

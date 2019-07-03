@@ -12,14 +12,6 @@
 */
 
 
-// YA SE CREO CON EL AUTH
-// Route::get('/registro', function () {
-//     return view('registro');
-// });
-
-// Route::get('/login', function () {
-//     return view('login');
-// });
 
 Route::get('/', function () {
     return view('phiorganic');

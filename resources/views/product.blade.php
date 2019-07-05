@@ -16,7 +16,7 @@
                     <a href="#">Home</a></li>
                     <li class="breadcrumb-item">
                         <a href="#">Categoria</a></li>
-                <li class="breadcrumb-item"><a href="#">{{$product->category->name}}</a></li>
+                <li class="breadcrumb-item"><a href="{{ url('category/'. $product->category_id ) }}">{{$product->category->name}}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{$product->name}}</li>
             </ol> 
             </nav>
@@ -55,8 +55,8 @@
                                     <ul class="rating-stars">
                                         <span style="width:80%" class="stars-active"> 
                                             <i class="fa fa-star checked"></i> <i class="fa fa-star checked"></i> 
-                                            <i class="fa fa-star checked"></i> <i class="fa fa-star ($product->rating>3)?'checked':'' "></i> 
-                                            <i class="fa fa-star ($product->rating>4)?'checked':''"></i> 
+                                            <i class="fa fa-star checked"></i> <i class="fa fa-star {{($product->rating>3)?'checked':''}} "></i> 
+                                            <i class="fa fa-star {{($product->rating>4)?'checked':''}}"></i> 
                                         </span>
                                     </ul>
                                 </div> <!-- rating-wrap.// -->

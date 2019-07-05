@@ -11,24 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-      $this->call(CategoriaSeeder::class);
-      $this->call(ProductTableSeeder::class);
-			
-			
-			DB::table('users')->insert([
-            'name' => 'Marcos',
-            'first_name' => 'Marcos',
-            'last_name' => 'Ferrini',
-            'email' => 'mferrini@hotmail.com',
-            'password' => bcrypt('123456'),
-            'profile' => '9',
-        ]);
-       
-       /*App\User::updateOrCreate([
-            'name' => 'Marcos',
-            'email' => 'mferrini@hotmail.com',
-            'password' => bcrypt('123456'),
-            'profile' => '9',
-        ]);*/
+        $this->call(CategoryTableSeeder::class);
+       // $this->call(ProductTableSeeder::class);
     }
 }

@@ -18,27 +18,48 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/test', function () {
+    //return App\Category::with('subCategory')->where('parent', '=', '0' )->get();
+});
+
+Route::get('/category/{numero}/show', 'CategoryController@showCategoryProducts');
+
+Route::get('/faq', function (){  return view('faq'); } );
+Route::get('/tyc', function (){  return view('faq'); } );
+Route::get('/contacto', function (){  return view('contacto'); } );
+
+Route::post('/contacto', function (){
+  //return view('home')->with(['messageToUser'=> 'gracias, nos estaremos comunicando con uds en los proximos 30 años.' ]);
+  return redirect()->back()->with(['messageToUser'=> 'gracias, nos estaremos comunicando con uds en los proximos 30 años.' ]);
+});
+
+Route::get('/nosotros', function (){  return view('nosotros'); } );
+Route::get('/politicas', function (){  return view('faq'); } );
+
+Route::get('/search', 'ProductController@search');
+  /*
+   * function(){
+  if(count($user) > 0)
+    return view('welcome')->withDetails($user)->withQuery ( $q );
+  else return view ('welcome')->withMessage('No Details found. Try to search again !');
+});
+  */
+
 Auth::routes();
+Route::resource('category', 'CategoryController');
 
-Route::get('/miPrimeraRuta', function (){
-	echo 'mi primer ruta en Lara';
-});
-
-Route::get('/resultado/{numero}/{numero2?}', function ($i,$j=0){
-	if (empty($j)){
-		
-		echo "recibi el numero: $i";	
-	}else {
-	 	echo "reaultado: " . $i * $j;	
-	}
-	
-});
+Route::resource('product', 'ProductController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::view('/nombrePagina', 'algunaPagina.php');
+// Route::get('/prueba/{numero}/{marca}', 'HomeController@prueba')->middleware('auth');
 Route::get('/prueba/{numero}/{marca}', 'HomeController@prueba');
-
-Route::get('/peliculas', 'PeliculasController@index');
-Route::get('/peliculas/{id}', 'PeliculasController@buscarPeliculaId');
-Route::get('/peliculas/buscar/{nombre}', 'PeliculasController@buscarPeliculaNombre');
+/*
+Route::group(['middleware' =>'midllewareGenerico'], function (){
+	Route::get('/prueba/{numero}/{marca}', 'HomeController@prueba')->middleware('midllewareEspeficicoParaEstaRuta') ;
+	Route::get('/prueba/{numero}/{marca}', 'HomeController@prueba');
+	Route::get('/prueba/{numero}/{marca}', 'HomeController@prueba');
+	Route::get('/prueba/{numero}/{marca}', 'HomeController@prueba');
+});
+*/

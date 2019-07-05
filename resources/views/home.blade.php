@@ -20,7 +20,11 @@
         </div>
     </div>
 </div>-->
+@isset( $messageToUser )
+  {{$messageToUser}}
+@else
+  @include('partials/carousel')
+@endisset
 
-@include('common/carousel')
 
 @endsection

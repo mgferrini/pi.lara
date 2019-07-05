@@ -2,11 +2,11 @@
   <div class=" row">
     <div class="col-md-12">
       <ul class="footerPages">
-        <li><a class="footer-item" href="?page=contacto">Contacto</a></li>
-        <li><a class="footer-item" href="?page=nosotros">Quienes Somos</a></li>
-        <li><a class="footer-item" href="faq">Preguntas Frecuentes</a></li>
-        <li><a class="footer-item" href="?page=tyc">Terminos y condiciones</a></li>
-        <li><a class="footer-item" href="?page=politicas">Politica de privacidad</a></li>
+        <li><a class="footer-item" href="{{ url('contacto')  }}">Contacto</a></li>
+        <li><a class="footer-item" href="{{ url('nosotros')  }}">Quienes Somos</a></li>
+        <li><a class="footer-item" href="{{ url('faq')  }}">Preguntas Frecuentes</a></li>
+        <li><a class="footer-item" href="{{ url('tyc')  }}">Terminos y condiciones</a></li>
+        <li><a class="footer-item" href="{{ url('politicas')  }}">Politica de privacidad</a></li>
       </ul>
     </div>
   </div>

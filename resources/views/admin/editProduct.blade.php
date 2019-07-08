@@ -79,7 +79,7 @@
                                 <label  for="catefory_id">Categoría:</label>
                                 <select class="form-control" name="category_id">
                                      @foreach($categories as $category)
-                                        <option value="{{ $category-> id}}" {{ ( $product->category_id == $category->id ) ? 'selected' : '' }} > > 
+                                        <option value="{{ $category-> id}}" {{ ( $product->category_id == $category->id ) ? 'selected' : '' }}  > 
                                             {{$category ->parent . ' ' . $category->name}}
                                         </option>
                                     @endforeach

@@ -12,14 +12,19 @@ class ProductsController extends Controller
 
         $this->middleware('auth')->only(''); //esto aplica el middelware a todos los metodos de este controlador/ si le agrego el only es solo para esos metodos / y tambien puedo poner el except para exceptuar paginas
     }
+
+    /*Products Page*/
     public function show($id){
     
         $product=Product::find($id);
         $categories = Category::all();
+        $products=Product::all();
+      
         
         return view('product', [
             'product' => $product,
             'categories' => $categories,
+            'products' => $products,
             ]);
     
         }
@@ -150,4 +155,9 @@ class ProductsController extends Controller
                 'image' => "image"
             ];
         }
+
+       
+
+       
+
 }

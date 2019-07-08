@@ -92,8 +92,13 @@ a:hover{
   .ColTitle{
       font-weight: bold;
       font-size: 16px;
+      font:white;
   }
   .imgDel{
     width:200px;
+}
+.tableTitles{
+    background-color: gray;
+   
 }
   

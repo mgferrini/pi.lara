@@ -10,13 +10,13 @@
 	<section class="row">
 		<br><br>
 	</section>
-	<!--<section class="row">
-	    <article class="banner1">
+	<section class="row">
+	    <article class="banner2">
             <h5 class="titulocursiva">Phi Organic</h5>
             <h3 class="tituloppal">{{$category->parentCategory->name . " ". $category->name}}</h3>
         </article>   
-    </section> -->
-    <h3>{{$category->parentCategory->name . " ". $category->name}}</h3>
+    </section> 
+   <!-- <h3>{{$category->parentCategory->name . " ". $category->name}}</h3>-->
     <div class="articulos container_fluid">
         @foreach($products as $product)
             @if($product->category_id == $category->id)

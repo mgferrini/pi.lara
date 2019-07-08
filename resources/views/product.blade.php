@@ -13,9 +13,9 @@
             <nav class="mb-3">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="#">Home</a></li>
+                    <a href="/">Home</a></li>
                     <li class="breadcrumb-item">
-                        <a href="#">Categoria</a></li>
+                        <a href="">Categoria</a></li>
                 <li class="breadcrumb-item"><a href="{{ url('category/'. $product->category_id ) }}">{{$product->category->name}}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{$product->name}}</li>
             </ol> 
@@ -28,7 +28,7 @@
                                 <aside class="col-sm-6">
                                     <article class="gallery-wrap"> 
                                         <div class="img-big-wrap">
-                                            <div> <a href=""><img src="/img/{{$product->image}}" class="imgArt"></a></div>
+                                            <div> <a href=""><img src=  {{ asset('img/' . $product->image) }} class="imgArt"></a></div>
                                         </div> <!-- slider-product.// -->
                                     </article> <!-- gallery-wrap .end// -->
                                 </aside>

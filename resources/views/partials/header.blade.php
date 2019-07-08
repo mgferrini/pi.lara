@@ -6,7 +6,7 @@
         <div class="col-md-9">
 	        <nav class="navbar navbar-expand-lg">
 	            <div class="collapse navbar-collapse navOrder collapse show" id="navbarSupportedContent">
-	                <ul class="navbar-nav flex-row">
+	                <ul class="navbar-nav flex-row liBase">
                         @guest
                              <li class="nav-item dropdown">
                                     <a class="nav-link navflecha dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -20,7 +20,7 @@
                         @else
                             <p>
                                 <img height="35" width="35" class="img-fluid rounded-circle" src="{{ asset('storage/avatars/' . auth()->user()->avatar) }}">
-                                Hola {{ Auth::user()->first_name }}
+                                <span class="fontHeader">Hola {{ Auth::user()->first_name }}</span>
                             </p>
                             <li class="nav-item dropdown">
                                 <a class="nav-link navflecha dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -38,6 +38,13 @@
                                     </form>
                                 </div>
                             </li>
+                            @if(Auth::user()->role === "2")
+                                <li class="nav-item"> 
+                                <a class="adminHeader" href="/adminProducts">
+                                    <span class="fontHeader">Admin</span>
+                                </a>
+                                </li>
+                            @endif
                         @endguest
 	                        <li class="nav-item">
 	                            <a class="nav-link" href="#">

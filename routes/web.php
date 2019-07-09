@@ -37,7 +37,7 @@ Route::get('/productDelete/{id}', 'ProductsController@delete'); //->middleware('
 Route::delete('/admin/{product}', 'ProductsController@destroy'); 
 Route::get("/editProduct/{id}", "ProductsController@edit");
 Route::patch('/admin/{product}', 'ProductsController@update');  
-
+Route::post('/searchResults', 'HomeController@search');
  
 
 

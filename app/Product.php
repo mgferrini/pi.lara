@@ -11,6 +11,8 @@ class Product extends Model
     public $timestamps = true; // Es PUBLIC. esto se pone solamente si dentro de la tabla existe las columnas updated at and created at . SINO hay que poner false}
     protected $guarded =[]; // esto significa que todos los campos pueden ser modificados . Si hay alguno que no se puede modificar lo pongo adentro
 
+    protected $with = ['category'];
+
     protected $fillable =[                //esto lo tengo que poner para sobreescribir la base de datos
         'name', 'description', 'rating','price','components','details','stock','image','category_id',
     ];

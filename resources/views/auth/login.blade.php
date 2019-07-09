@@ -1,4 +1,4 @@
-@extends ("plantilla")
+@extends ("layouts.plantilla")
 
 @section("titulo")
    Phi Organic - Login
@@ -17,42 +17,40 @@
                 <h2 class="regtitulo">Usuario y Contraseña</h2><br>
             </div>
             <div class="panel-body">
-              <form method="POST" action="">
-                      @csrf
-                    <fieldset>
+                <form accept-charset="UTF-8" role="form" method="post" action="{{ route('login') }}">
+                    @csrf
                         <div class="form-group">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
-
-                              @error('email')
-                                  <span class="alert alert-danger" role="alert">
-                                      <strong>{{ $message }}</strong>
-                                  </span>
-                              @enderror
+                            <input class="form-control @error('email') is-invalid @enderror" placeholder="E-mail" name="email" type="text" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                         <div class="form-group">
-                          <input id="password" type="password" class="form-control @error('password') incorrecta @enderror" name="password" required autocomplete="current-password" placeholder="Password">
-
-                              @error('password')
-                                  <span class="alert alert-danger" role="alert">
-                                      <strong>{{ $message }}</strong>
-                                  </span>
-                              @enderror
+                            <input class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password" type="password" required autocomplete="current-password">
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} value="Remember Me"> Recordarme
-                            </label>
+                        <div class="checkbox"> 
+                            <input name="remember" type="checkbox" id="remember" {{ old('remember') ? 'checked' : '' }} > 
+                            <label class="form-check-label" for="remember">
+                                  {{ __('Recordarme') }}
+                            </label>  
                         </div>
+                        <br>
                         <input class="btn regboton" type="submit" value="Ingresar">
                         <hr>
                         <div class="forgot">
-                          @if (Route::has('password.request'))
-                                  <a class="btn btn-link" href="{{ route('password.request') }}">
-                                      {{ __('Forgot Your Password?') }}
-                                  </a>
-                              @endif
-                        </div>
-                    </fieldset>
+                            @if (Route::has('password.request'))
+                            <a class="btn btn-link" href="{{ route('password.request') }}">
+                            {{ __('Olvide mi contraseña') }}
+                        </a>
+                         @endif
+                    </div>
                 </form>
             </div>
         </div>
@@ -61,7 +59,7 @@
       <h2 class="regtitulo2">¿Acaso no estas registrado?</h2>
       <p>Registrate para estar al tanto de las ultimas novedades acerca de los productos, los nuevos productos de Phi Organic, proximos lanzamientos y un monton de cosas mas.</p>
       <br>
-      <a class="btn regboton" href="/register">Registrarse</a>
+      <a class="btn regboton" href="register">Registrarse</a>
     </article>
   </section>
 </div>

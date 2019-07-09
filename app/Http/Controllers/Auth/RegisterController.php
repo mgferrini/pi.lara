@@ -28,7 +28,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/phiorganic';
+    
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -52,7 +53,9 @@ class RegisterController extends Controller
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'avatar' => ['required', 'image'],
+            'terminos' =>['accepted'],
         ]);
     }
 
@@ -62,13 +65,23 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(array $data)   
     {
-        return User::create([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+    //$folder = "public/avatars";
+   $rutaArchivo=$data['avatar']->store('public/avatars');
+   $nombreArchivo=basename($rutaArchivo);
+
+    return User::create([
+        'first_name' => $data['first_name'],
+        'last_name' => $data['last_name'],
+        'email' => $data['email'],
+        'password' => Hash::make($data['password']),
+        //'avatar' => request()->file("avatar")->store($folder),
+        'avatar' => $nombreArchivo,
+        'role' => 1,
+    ]);
     }
-}
+    
+
+
+    }

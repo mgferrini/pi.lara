@@ -97,3 +97,12 @@
         </div>
     </body>
 </html>
+
+Breadcrumb de producto
+    <!--<li class="breadcrumb-item">
+                @foreach($categories as $category) 
+                    <a href="#">
+                    {{ ( $product->category_id == $category->id) ? $category->parentCategory->name : ''}}
+                    </a>
+                @enforeach  
+            </li> -->

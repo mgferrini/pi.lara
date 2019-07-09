@@ -64,6 +64,7 @@
 .regboton:hover{
     background-color: white ;
     color: #0bb791;
+    border: solid 1px  #0bb791;
 }
 /* FAQ */
 .banner1{

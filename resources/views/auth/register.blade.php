@@ -1,4 +1,14 @@
-@extends ("plantilla")
+@extends ("layouts.plantilla")
+
+@if(count($errors)>0) 
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 @section("titulo")
    Phi Organic -  Registro
@@ -69,7 +79,7 @@
 					</div>
 				</div>
 				<div class="regSubirAvatar"> Imagen de Perfil:
-					<input type="file" name="avatar" id="avatar">
+					<input type="file" name="avatar" id="avatar" value=" {{ old('avatar') }}">
 				</div>
 				<div class="form-group">
 					<div class="form-check">

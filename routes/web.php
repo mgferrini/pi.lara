@@ -11,25 +11,34 @@
 |
 */
 
-
-
 Route::get('/', function () {
     return view('phiorganic');
 });
 
-Route::get('/perfil', function () {
-    return view('perfil');
-});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/faq', function () {
     return view('faq');
 });
-
-Auth::routes();
-
-Route::get('logout', function () {
-  auth()->logout();
-  return redirect('/phiorganic');
+Route::get('/logout', function () {
+    auth()->logout();
+    return redirect('/');
 });
+Route::get('/perfil', 'PerfilController@index') ;
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get("/product/{id}", "ProductsController@show");
+Route::get("/category/{id}", "CategoriesController@show");
+Route::get("/adminProducts", "ProductsController@index");
+Route::get('/newProduct', 'ProductsController@create');  
+Route::post('/adminProducts', 'ProductsController@store');
+Route::get('/productDelete/{id}', 'ProductsController@delete'); //->middleware('auth');// entras aca y cuando haces submit ejecutas el destroy
+Route::delete('/admin/{product}', 'ProductsController@destroy'); 
+Route::get("/editProduct/{id}", "ProductsController@edit");
+Route::patch('/admin/{product}', 'ProductsController@update');  
+
+ 
+
+
+

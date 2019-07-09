@@ -22,12 +22,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/faq', function () {
     return view('faq');
 });
+Route::get('/terminos', function () {
+    return view('terminos');
+});
+Route::get('/Privacidad', function () {
+        return view('Privacidad');
+});
 Route::get('/logout', function () {
     auth()->logout();
     return redirect('/');
 });
 Route::get('/perfil', 'PerfilController@index') ;
-
 Route::get("/product/{id}", "ProductsController@show");
 Route::get("/category/{id}", "CategoriesController@show");
 Route::get("/adminProducts", "ProductsController@index");

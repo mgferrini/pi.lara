@@ -5,8 +5,8 @@
         <li><a class="footer-item" href="?page=contacto">Contacto</a></li>
         <li><a class="footer-item" href="?page=nosotros">Quienes Somos</a></li>
         <li><a class="footer-item" href="faq">Preguntas Frecuentes</a></li>
-        <li><a class="footer-item" href="?page=tyc">Terminos y condiciones</a></li>
-        <li><a class="footer-item" href="?page=politicas">Politica de privacidad</a></li>
+        <li><a class="footer-item" href="terminos">Terminos y condiciones</a></li>
+        <li><a class="footer-item" href="Privacidad">Politica de privacidad</a></li>
       </ul>
     </div>
   </div>

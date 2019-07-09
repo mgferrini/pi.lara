@@ -28,11 +28,13 @@ class Category extends Model
   public function parent() {
      return $this->parentCategory();
   }
+  public function getCategoriaCompleta() {
+  return $this->parentCategory->name . " ". $this->name;
 
 
 }
 
 
-
+}
 
 

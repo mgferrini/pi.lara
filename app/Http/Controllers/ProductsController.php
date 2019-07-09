@@ -103,7 +103,11 @@ class ProductsController extends Controller
 
     public function delete($id){
         $product=Product::find($id);
-        return view('admin/productDelete')->with('product',$product);
+        $categories = Category::all();
+        return view('admin/productDelete',[
+            'product' => $product,
+            'categories' => $categories,
+        ]);
         }
 
      public function destroy(\App\Product $product)

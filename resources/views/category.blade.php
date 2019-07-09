@@ -21,7 +21,8 @@
         @foreach($products as $product)
             @if($product->category_id == $category->id)
                 <article class="prod col-xs-12 col-md-6 col-lg-4">
-                    <img src="/img/{{$product->image}}" class="imgCat">
+                    <a href="{{ url('product/'. $product->id ) }}">
+                        <img src="/img/{{$product->image}}" class="imgCat"> </a>
                     <h4 class="nombreArt">
                         <a href="{{ url('product/'. $product->id ) }}" class="title">{{$product->name}}</a>
                     </h4> 

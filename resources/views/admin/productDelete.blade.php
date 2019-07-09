@@ -31,14 +31,14 @@ Phi Organic -  Admin
                     <div class="col-xl-12 col-md-12 col-sm-12">
                             <main class="card">
                                 <div class="row no-gutters">
-                                    <aside class="col-sm-6">
+                                    <aside class="col-sm-4">
                                         <article class="gallery-wrap"> 
                                             <div class="img-big-wrap">
                                                 <div> <a href=""><img src=  {{ asset('img/' . $product->image) }} class="imgDel"></a></div>
                                             </div> <!-- slider-product.// -->
                                         </article> <!-- gallery-wrap .end// -->
                                     </aside>
-                            <aside class="col-sm-6">
+                            <aside class="col-sm-8">
                                 <article class="card-body">
                             <!-- short-info-wrap -->
                                     <h5 class="title mb-3 tituloprod">{{$product->name}}</h5>
@@ -55,7 +55,12 @@ Phi Organic -  Admin
                                         <dt class="col-sm-3">Esencias</dt>
                                         <dd class="col-sm-9">{{$product->components}} </dd>
                                         <dt class="col-sm-3">Categoría</dt>
-                                        <dd class="col-sm-9">{{$product->category->name}} </dd>
+                                     
+                                        <dd class="col-sm-9">
+                                            @foreach($categories as $categoria)
+                                            {{( $product->category_id == $categoria->id ) ? $categoria->getCategoriaCompleta(): ''}} 
+                                            @endforeach
+                                        </dd>
                                     </dl>
                                 </article>
                             </aside>

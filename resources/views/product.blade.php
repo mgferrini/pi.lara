@@ -120,7 +120,7 @@
                         <div class="card-body row">
                             <div class="col-md-12 col-sm-3">
                                 <figure class="item border-bottom mb-3">
-                                    <a href="{{ url('product/'. $products->random()->id ) }}" class="img-wrap"> <img src="{{ asset('img/' . $products->random()->image) }}" class="img-md imgPRel"></a>
+                                    <a href="{{ url('product/'. $products->random()->id ) }}" class="img-wrap"> <img src="{{ asset('storage/products/' . $products->random()->image) }}" class="img-md imgPRel"></a>
                                     <figcaption class="info-wrap">
                                         <a href="{{ url('product/'. $products->random()->id ) }}" class="title">{{$products->random()->name}}</a>
                                         <div class="price-wrap mb-3">
@@ -131,7 +131,7 @@
                             </div> 
                             <div class="col-md-12 col-sm-3">
                                 <figure class="item border-bottom mb-3">
-                                        <a href="{{ url('product/'. $products->random()->id ) }}" class="img-wrap"> <img src="{{ asset('img/' . $products->random()->image) }}" class="img-md imgPRel"></a>
+                                        <a href="{{ url('product/'. $products->random()->id ) }}" class="img-wrap"> <img src="{{ asset('storage/products/' . $products->random()->image) }}" class="img-md imgPRel"></a>
                                         <figcaption class="info-wrap">
                                             <a href="{{ url('product/'. $products->random()->id ) }}" class="title">{{$products->random()->name}}</a>
                                             <div class="price-wrap mb-3">
@@ -142,7 +142,7 @@
                             </div> 
                             <div class="col-md-12 col-sm-3">
                                 <figure class="item border-bottom mb-3">
-                                        <a href="{{ url('product/'. $products->random()->id ) }}" class="img-wrap"> <img src="{{ asset('img/' . $products->random()->image) }}" class="img-md imgPRel"></a>
+                                        <a href="{{ url('product/'. $products->random()->id ) }}" class="img-wrap"> <img src="{{ asset('storage/products/' . $products->random()->image) }}" class="img-md imgPRel"></a>
                                         <figcaption class="info-wrap">
                                             <a href="{{ url('product/'. $products->random()->id ) }}" class="title">{{$products->random()->name}}</a>
                                             <div class="price-wrap mb-3">

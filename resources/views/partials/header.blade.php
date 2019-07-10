@@ -27,7 +27,7 @@
                                     <i class="fas fa-user-plus fa-md icon"></i> 
                                 </a>  
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="/perfil"><i class="navuser">{{ __('Editar Perfil') }}</i></a>
+                                    <a class="dropdown-item" href="/perfil/{{ Auth::user()->id }}"><i class="navuser">{{ __('Editar Perfil') }}</i></a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">

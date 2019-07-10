@@ -65,8 +65,8 @@
                 <label  for="catefory_id">Categoría:</label>
                 <select class="form-control" name="category_id">
                     @foreach($categories as $category)
-                        <option value="{{ $category-> id}}" value="{{ old('category_id') }}" > 
-                            {{$category ->parent . ' ' . $category->name}}
+                        <option value="{{ $category->id}}" value="{{ old('category_id') }}" > 
+                            {{$category ->getCategoriaCompleta()}}
                         </option>
                     @endforeach
                 </select>

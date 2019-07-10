@@ -19,18 +19,22 @@ class Category extends Model
   public function parentCategory()
   {
     //return $this->belongsTo(Category::class, 'id', 'parent');
-    return $this->hasOne(Category::class,'id','parent');
-  }
+   return $this->hasOne(Category::class,'id','parent');
   
+  }
   public function products(){
   	return $this->hasMany(Product::class, 'category_id');
   }
   public function parent() {
-	  return $this->parentCategory()->get('name');
-	}
+     return $this->parentCategory();
+  }
+  public function getCategoriaCompleta() {
+  return $this->parentCategory->name . " ". $this->name;
+
+
 }
 
 
-
+}
 
 

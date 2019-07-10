@@ -78,9 +78,9 @@
                             <div class="form-group col-md-6">
                                 <label  for="catefory_id">Categoría:</label>
                                 <select class="form-control" name="category_id">
-                                     @foreach($categories as $category)
-                                        <option value="{{ $category-> id}}" {{ ( $product->category_id == $category->id ) ? 'selected' : '' }} > > 
-                                            {{$category ->parent . ' ' . $category->name}}
+                                     @foreach($categories as $categoria)
+                                        <option value="{{ $categoria->id}}" {{ ( $product->category_id == $categoria->id ) ? 'selected' : '' }}  > 
+                                            {{$categoria->name}}
                                         </option>
                                     @endforeach
                                 </select>

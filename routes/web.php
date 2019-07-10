@@ -32,13 +32,13 @@ Route::get('/logout', function () {
     auth()->logout();
     return redirect('/');
 });
-Route::get('/perfil', 'PerfilController@index') ;
+Route::get('/perfil/{id}', 'PerfilController@show') ;
 Route::get("/product/{id}", "ProductsController@show");
 Route::get("/category/{id}", "CategoriesController@show");
 Route::get("/adminProducts", "ProductsController@index");
 Route::get('/newProduct', 'ProductsController@create');  
 Route::post('/adminProducts', 'ProductsController@store');
-Route::get('/productDelete/{id}', 'ProductsController@delete'); //->middleware('auth');// entras aca y cuando haces submit ejecutas el destroy
+Route::get('/productDelete/{id}', 'ProductsController@delete'); //->middleware('auth');
 Route::delete('/admin/{product}', 'ProductsController@destroy'); 
 Route::get("/editProduct/{id}", "ProductsController@edit");
 Route::patch('/admin/{product}', 'ProductsController@update');  

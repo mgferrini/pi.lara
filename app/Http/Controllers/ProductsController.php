@@ -55,7 +55,7 @@ class ProductsController extends Controller
    // $ruta = $req->file("image")->store();
      //  $nombreArchivo= basename($ruta);
      
-       $rutaArchivo=$req['image']->store('public/img');
+       $rutaArchivo=$req['image']->store('public/products');
        $nombreArchivo=basename($rutaArchivo);
 
         $product = \App\Product::create([
@@ -69,7 +69,7 @@ class ProductsController extends Controller
             'category_id' =>$req->get('category_id'),
             'image' =>$nombreArchivo,
         ]);
-        return redirect("/admin/adminProducts");
+        return redirect("/products");
 
     }
     private function getValidationRules() 

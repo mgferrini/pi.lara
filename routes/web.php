@@ -43,6 +43,7 @@ Route::delete('/admin/{product}', 'ProductsController@destroy');
 Route::get("/editProduct/{id}", "ProductsController@edit");
 Route::patch('/admin/{product}', 'ProductsController@update');  
 Route::post('/searchResults', 'HomeController@search');
+Route::post('/carrito/{id}', 'UserProductController@show');
  
 
 

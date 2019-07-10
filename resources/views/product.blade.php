@@ -31,7 +31,7 @@
                                 <aside class="col-sm-6">
                                     <article class="gallery-wrap"> 
                                         <div class="img-big-wrap">
-                                            <div> <a href=""><img src=  {{ asset('img/' . $product->image) }} class="imgArt"></a></div>
+                                            <div> <a href=""><img src={{ asset('storage/products/' . $product->image) }} class="imgArt"></a></div>
                                         </div> 
                                     </article> 
                                 </aside>

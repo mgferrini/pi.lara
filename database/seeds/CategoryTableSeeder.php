@@ -10,8 +10,8 @@ class CategoryTableSeeder extends Seeder
      * @return void
      */
     public function run()
-	{
-    	DB::table('categories')->insert([
+    {
+        DB::table('categories')->insert([
 			'name' => 'Jabones',
 			'top' => true,
 			'parent' => 0,

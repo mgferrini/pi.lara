@@ -69,7 +69,7 @@ class ProductsController extends Controller
             'category_id' =>$req->get('category_id'),
             'image' =>$nombreArchivo,
         ]);
-        return redirect("/products");
+        return redirect("/adminProducts");
 
     }
     private function getValidationRules() 

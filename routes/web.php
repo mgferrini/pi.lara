@@ -35,7 +35,7 @@ Route::get('/logout', function () {
 Route::get('/perfil/{id}', 'PerfilController@show') ;
 Route::get("/product/{id}", "ProductsController@show");
 Route::get("/category/{id}", "CategoriesController@show");
-Route::get("/products", "ProductsController@index");
+Route::get("/adminProducts", "ProductsController@index");
 Route::get('/newProduct', 'ProductsController@create');  
 Route::post('/adminProducts', 'ProductsController@store');
 Route::get('/productDelete/{id}', 'ProductsController@delete'); //->middleware('auth');

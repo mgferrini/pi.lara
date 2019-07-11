@@ -1,7 +1,7 @@
 @extends ("layouts.plantilla")
 
 @section("titulo")
-   Phi Organic -  Registro
+   Phi Organic
 @endsection
 
 @section ("principal")
@@ -17,7 +17,7 @@
 	    <article class="banner1">
             <h5 class="titulocursiva">Phi Organic</h5>
             <h3 class="tituloppal">Respeto desde el Origen</h3>
-        </article>   
+        </article>
 	<br><br>
 	</section>
 	<section class="registro row">

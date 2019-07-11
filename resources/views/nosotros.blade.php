@@ -1,7 +1,7 @@
 @extends ("layouts.plantilla")
 
 @section("titulo")
-  Phi Organic -  Registro
+  Phi Organic
 @endsection
 
 @section ("principal")

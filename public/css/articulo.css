@@ -18,6 +18,7 @@ a:hover{
     margin-bottom: 20px;
     border: solid 1px  #0bb791;
 
+
 }
 .botcarrito:hover{
     background-color: #cbdbd2 ;
@@ -100,5 +101,8 @@ a:hover{
 .tableTitles{
     background-color: gray;
    
+}
+.miniatura{
+width: 50px;
 }
   

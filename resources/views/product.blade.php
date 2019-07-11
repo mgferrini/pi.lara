@@ -36,6 +36,8 @@
                                     </article> 
                                 </aside>
                         <aside class="col-sm-6">
+                                <form class="form-inline my-2 my-lg-0" action="/cart/{{$product->id}}/{{ Auth::user()->id }}" method="post">
+                                    @csrf
                             <article class="card-body">
                       
                                 <h3 class="title mb-3 tituloprod">{{$product->name}}</h3>
@@ -69,7 +71,7 @@
                                         <dl class="dlist-inline">
                                             <dt>Cantidad: </dt>
                                             <dd> 
-                                                <select class="form-control form-control-sm" style="width:70px;">
+                                                <select class="form-control form-control-sm" name="quantity" style="width:70px;">
                                                     <option> 1 </option>
                                                     <option> 2 </option>
                                                     <option> 3 </option>
@@ -79,9 +81,9 @@
                                     </div> 
                                 </div> 
                             
-                                <a href="#" class="btn botcarrito"> Agregar al carrito </a>
-           
+                                <input  type="submit" class="btn botcarrito" value="Agregar al carrito">
                             </article> 
+                            </form>
                         </aside> 
                     </div> 
                     </main> 

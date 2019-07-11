@@ -17,21 +17,28 @@
         <th scope="col" class="ColTitle">Remover</th>
       </tr>
     </thead>
-    <tbody class="regformulario">
+    <tbody class="regcarrito">
+      
       <tr >
       @foreach ($products as $product)
-          <th scope="row"><a href="/product/{{$product->id}}" class="miniatura">{{$product->image}}</a></th>
-          <td><a href="/product/{{$product->id}}">{{$product->name}}</a></td>
+    
+          <th scope="row"><a href="/product/{{$product->id}}"><img class="miniatura" src="{{ asset('storage/products/' . $product->productos->image) }}"></a></th>
+          <td><a href="/product/{{$product->id}}">{{$product->productos->name}}</a></td>
           <td>{{$product->price}}</td>
           <td>{{$product->quantity}}</td>
           <td>{{$product->quantity * $product->price}}</td>
-          <td><a href=""><i class="far fa-window-close"></i></a></td>
+            <form class="" action="{{url('/ventas/carrito/',$product->id)}}" method="post">
+            @csrf
+            {{ method_field('DELETE') }}
+            <td>  <input class="" type="submit"  value="Eliminar"></td>
+          </form>
       </tr>
       @endforeach
+  
     </tbody>
   </table>
-  <div class="pagination">
-      {{$products->links()}} 
+  
+   
   </div>
     <br>
 </div>

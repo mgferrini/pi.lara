@@ -28,8 +28,11 @@
                     </h4> 
                     <span class="priceCat">{{'$ ' . $product->price}}</span>
                     <p class="parrafo">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sed suscipit dolorem.</p>
-                    <a href="#" class="btn botcarrito"> Agregar al carrito </a>
+                    <form class="form-inline my-2 my-lg-0" action="/carrito/{{$product->id}}/{{ Auth::user()->id }}" method="post">
+                    @csrf
+                    <input  type="submit" class="btn botcarrito" value="Agregar al carrito">
                     <br>
+                    </form>
                 </article>
             @endif
         @endforeach

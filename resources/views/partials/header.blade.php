@@ -47,7 +47,7 @@
                             @endif
                         @endguest
 	                        <li class="nav-item">
-	                            <a class="nav-link" href="#">
+	                            <a class="nav-link" href="/carrito/{{Auth::user()->id }}">
 	                                <i class="fas fa-shopping-basket fa-md icon navcart"></i>
 	                            </a>
 	                        </li>

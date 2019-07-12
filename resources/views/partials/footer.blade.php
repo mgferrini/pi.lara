@@ -2,8 +2,8 @@
   <div class=" row">
     <div class="col-md-12">
       <ul class="footerPages">
-        <li><a class="footer-item" href="?page=contacto">Contacto</a></li>
-        <li><a class="footer-item" href="?page=nosotros">Quienes Somos</a></li>
+        <li><a class="footer-item" href="">Contacto</a></li>
+        <li><a class="footer-item" href="nosotros">Quienes Somos</a></li>
         <li><a class="footer-item" href="faq">Preguntas Frecuentes</a></li>
         <li><a class="footer-item" href="terminos">Terminos y condiciones</a></li>
         <li><a class="footer-item" href="Privacidad">Politica de privacidad</a></li>

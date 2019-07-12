@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use \App\Product;
 use \App\Cart;
 use \App\User;
+use DB;
 
 class CartsController extends Controller
 {
@@ -14,19 +15,15 @@ class CartsController extends Controller
 
             $product =  Product::find($idProd);
             $user = User::find($idUser);
-            $cart = \App\Cart::create([
+            $cart = \App\Cart::firstOrNew([
                 'user_id' => $user->id,
                 'product_id' => $product->id,
-                'price' => $product->price,
-                'quantity' => 1,
                 'cart_id' =>$user->id,
             ]);
-
-            $cartProducts =\App\Cart::query()->select('id','user_id', 'product_id', 'price', 'quantity')->where('user_id', 'like',  $idUser);
-
-            return view('/ventas/carrito', [
-                'cartProducts' => $cartProducts->get()
-            ]);
+            $cart->quantity = $cart->quantity + 1;
+            $cart->price= $product->price;
+            $cart->save();
+            return $this->show($idUser);
         }
 
         public function addMany(request $request, $idProd, $idUser){
@@ -49,44 +46,21 @@ class CartsController extends Controller
             ]);
         }
          
-     
-             /* ASI LO HIZO DANY:  public function add($id)
-    {
-      $product =  Product::find($id);
-      $product = [
-            'id' => $product->id,
-            "name" => $product->name,
-            'price' => $product->price,
-            'image' => $product->imageLoc,
-            'quantity' => 1,
-      ];
-       session()->put("user.cart." . $id, $product);
-       
-       return view('carrito');
-    }
-*/
-            
 
             public function show($idUser){
                 $user = User::find($idUser);
-                $cartProducts =\App\Cart::query()->select('id','user_id', 'product_id', 'price', 'quantity')->where('user_id', 'like',  $idUser);
+                $cartProducts =\App\Cart::query()->select('id','user_id', 'product_id', 'price', 'quantity', DB::raw('(price * quantity) as subtotal'))->where('user_id', 'like',  $idUser);
                
+                $cartProducts = $cartProducts->get();
+                $totalAcumulado = $cartProducts->sum('subtotal');
+                
                 return view('/ventas/carrito', [
-                    'cartProducts' => $cartProducts->get()
+                    'cartProducts' => $cartProducts,
+                    'totalAcumulado'=>$totalAcumulado,
                 ]);
             }
         
-            /*
-            public function remove($idProd)
-            {
-
-                $deleted = \App\Cart::delete()-> from('user_product')->where('product_id', '===', $idProd);
-           
-                return view('/ventas/carrito', [
-                    'products' => $products
-                ]);
-            }*/
-
+    
             public function destroy(\App\Cart $product, $idUser)
             {
                 $product->delete();

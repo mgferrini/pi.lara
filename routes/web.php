@@ -32,6 +32,9 @@ Route::get('/logout', function () {
     auth()->logout();
     return redirect('/');
 });
+Route::get('/nosotros', function () {
+    return view('nosotros');
+});
 Route::get('/fin', function () {
     return view('fin');
 });

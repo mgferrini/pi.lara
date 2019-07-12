@@ -40,7 +40,7 @@
           <th scope="col" class="ColTitle">TOTAL</th>
           <th scope="col" class="ColTitle"></th>
           <th scope="col" class="ColTitle"></th>
-          <th scope="col" class="ColTitle"></th>
+          <th scope="col" class="ColTitle">{{$totalAcumulado}}</th>
           <th scope="col" class="ColTitle"></th>
         </tr>
       </thead>

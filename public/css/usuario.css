@@ -106,5 +106,28 @@
         font-family: 'Roboto', sans-serif;
         font-weight: 300;
       }
+
+      /* Quienes Somos */
+.banner_somos{
+    background-image: url(../img/banner6.jpg);
+    height: 40vh;
+    background-size: cover;
+    text-align: center;
+    padding: 80px;
+    background-position: center;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  
+  .section_subtitle {
+    font-size: 11px;
+    font-weight: 600;
+    color: #838383;
+    line-height: 0.75;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 23px;
+  }
+  
 /* hay qye hacer media query para que el titulo ppal y el titulo en cursiva no se muestren en mobile */
 /* hay que hacer media query para que la foto del jabon de registro no se muestre en moblile */

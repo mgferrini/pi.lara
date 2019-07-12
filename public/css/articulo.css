@@ -110,4 +110,10 @@ width: 50px;
     background-color: #cbdbd2;
    
 }
+.botones{
+    justify-content: flex-end;
+}
+.imgFin{
+    width:600px;
+}
   

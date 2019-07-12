@@ -40,13 +40,18 @@
           <th scope="col" class="ColTitle">TOTAL</th>
           <th scope="col" class="ColTitle"></th>
           <th scope="col" class="ColTitle"></th>
-          <th scope="col" class="ColTitle">{{$cartProducts->sum($product->quantity * $product->price)}}</th>
+          <th scope="col" class="ColTitle"></th>
           <th scope="col" class="ColTitle"></th>
         </tr>
       </thead>
     </tbody>
   </table>
-  
+  <br><br>
+  <div class="form-row botones">
+  <button class="botAdmin"> <a href="/">Seguir Comprando</a></button> 
+  &nbsp &nbsp &nbsp &nbsp &nbsp
+  <button class="botAdmin"><a href="/fin">Ir al checkout</a></button> 
+</div>
    
   </div>
     <br>

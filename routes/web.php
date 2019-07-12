@@ -32,6 +32,9 @@ Route::get('/logout', function () {
     auth()->logout();
     return redirect('/');
 });
+Route::get('/fin', function () {
+    return view('fin');
+});
 Route::get('/perfil/{id}', 'PerfilController@show') ;
 Route::get("/product/{id}", "ProductsController@show");
 Route::get("/category/{id}", "CategoriesController@show");
@@ -47,3 +50,4 @@ Route::post('/carrito/{id}/{user}', 'CartsController@addOne');
 Route::get('/carrito/{user}', 'CartsController@show') ; 
 Route::delete('/cartDel/{product}/{id}', 'CartsController@destroy') ; 
 Route::post('/cart/{id}/{user}', 'CartsController@addMany'); 
+

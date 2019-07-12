@@ -18,4 +18,7 @@ class Cart extends Model
     public function productos(){
         return $this->BelongsTo("App\Product","product_id");
     }
+    public function getTotalPriceAttribute(){
+        return $this->quantity * $this->price;
+    } 
 }

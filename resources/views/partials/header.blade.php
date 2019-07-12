@@ -38,6 +38,11 @@
                                     </form>
                                 </div>
                             </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" href="/carrito/{{Auth::user()->id }}">
+                                        <i class="fas fa-shopping-basket fa-md icon navcart"></i>
+                                    </a>
+                                </li>
                             @if(Auth::user()->role === "2")
                                 <li class="nav-item"> 
                                 <a class="adminHeader" href="/adminProducts">
@@ -46,11 +51,7 @@
                                 </li>
                             @endif
                         @endguest
-	                        <li class="nav-item">
-	                            <a class="nav-link" href="/carrito/{{Auth::user()->id }}">
-	                                <i class="fas fa-shopping-basket fa-md icon navcart"></i>
-	                            </a>
-	                        </li>
+	                       
 	                 </ul>
 	            </div>
 	        </nav>

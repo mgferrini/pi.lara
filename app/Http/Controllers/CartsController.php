@@ -22,29 +22,30 @@ class CartsController extends Controller
                 'cart_id' =>$user->id,
             ]);
 
-            $products =\App\Cart::query()->select('user_id', 'product_id', 'price', 'quantity')->where('user_id', 'like',  $idUser);
+            $cartProducts =\App\Cart::query()->select('id','user_id', 'product_id', 'price', 'quantity')->where('user_id', 'like',  $idUser);
 
             return view('/ventas/carrito', [
-                'products' => $products->get()
+                'cartProducts' => $cartProducts->get()
             ]);
         }
 
-        public function addMany(Request $request, $idProd, $idUser){
+        public function addMany(request $request, $idProd, $idUser){
 
             $product =  Product::find($idProd);
             $user = User::find($idUser);
             $cart = \App\Cart::create([
                 'user_id' => $user->id,
                 'product_id' => $product->id,
-                'quantity' => $request->get('quantity'),
+                //'quantity' => $request->get('quantity'),
+                'quantity' => 1,
                 'price' => $product->price,
                 'cart_id' =>$user->id,
             ]);
 
-            $products =\App\Cart::query()->select('user_id', 'product_id', 'price', 'quantity')->where('user_id', 'like',  $idUser);
+            $cartProducts =\App\Cart::query()->select('id','user_id', 'product_id', 'price', 'quantity')->where('user_id', 'like',  $idUser);
 
             return view('/ventas/carrito', [
-                'products' => $products->get()
+                'cartProducts' => $cartProducts->get()
             ]);
         }
          
@@ -68,10 +69,10 @@ class CartsController extends Controller
 
             public function show($idUser){
                 $user = User::find($idUser);
-                $products =\App\Cart::query()->select('user_id', 'product_id', 'price', 'quantity')->where('user_id', 'like',  $idUser);
+                $cartProducts =\App\Cart::query()->select('id','user_id', 'product_id', 'price', 'quantity')->where('user_id', 'like',  $idUser);
                
                 return view('/ventas/carrito', [
-                    'products' => $products->get()
+                    'cartProducts' => $cartProducts->get()
                 ]);
             }
         
@@ -85,6 +86,16 @@ class CartsController extends Controller
                     'products' => $products
                 ]);
             }*/
+
+            public function destroy(\App\Cart $product, $idUser)
+            {
+                $product->delete();
+               $cartProducts =\App\Cart::query()->select('id','user_id', 'product_id', 'price', 'quantity')->where('user_id', 'like',  $idUser);
+                return view('/ventas/carrito', [
+                    'cartProducts' => $cartProducts->get()
+                ]);
+               
+            }
         }
 
 

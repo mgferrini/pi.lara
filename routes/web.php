@@ -43,8 +43,7 @@ Route::delete('/admin/{product}', 'ProductsController@destroy');
 Route::get("/editProduct/{id}", "ProductsController@edit");
 Route::patch('/admin/{product}', 'ProductsController@update');  
 Route::post('/searchResults', 'HomeController@search');
-Route::post('/carrito/{id}/{user}', 'CartsController@addOne');
-Route::get('/carrito/{user}', 'CartsController@show'); 
-Route::delete('/carrito/{product}', 'CartsController@remove'); 
-Route::post('/cart/{id}/{user}', 'CartsController@addMany');
-
+Route::post('/carrito/{id}/{user}', 'CartsController@addOne'); 
+Route::get('/carrito/{user}', 'CartsController@show') ; 
+Route::delete('/cartDel/{product}/{id}', 'CartsController@destroy') ; 
+Route::post('/cart/{id}/{user}', 'CartsController@addMany'); 

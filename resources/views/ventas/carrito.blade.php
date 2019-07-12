@@ -20,21 +20,30 @@
     <tbody class="regcarrito">
       
       <tr >
-      @foreach ($products as $product)
+      @foreach ($cartProducts as $product)
     
-          <th scope="row"><a href="/product/{{$product->id}}"><img class="miniatura" src="{{ asset('storage/products/' . $product->productos->image) }}"></a></th>
-          <td><a href="/product/{{$product->id}}">{{$product->productos->name}}</a></td>
+          <th scope="row"><a href="/product/{{$product->product_id}}"><img class="miniatura" src="{{ asset('storage/products/' . $product->productos->image) }}"></a></th>
+          <td><a href="/product/{{$product->product_id}}">{{$product->productos->name}}</a></td>
           <td>{{$product->price}}</td>
           <td>{{$product->quantity}}</td>
           <td>{{$product->quantity * $product->price}}</td>
-            <form class="" action="{{url('/ventas/carrito/',$product->id)}}" method="post">
+            <form class="" action="/cartDel/{{$product->id}}/{{Auth::user()->id }}" method="post">
             @csrf
             {{ method_field('DELETE') }}
             <td>  <input class="" type="submit"  value="Eliminar"></td>
           </form>
       </tr>
       @endforeach
-  
+      <thead class="tableTotal">
+          <tr>
+          <th scope="col"></th>
+          <th scope="col" class="ColTitle">TOTAL</th>
+          <th scope="col" class="ColTitle"></th>
+          <th scope="col" class="ColTitle"></th>
+          <th scope="col" class="ColTitle">{{$cartProducts->sum($product->quantity * $product->price)}}</th>
+          <th scope="col" class="ColTitle"></th>
+        </tr>
+      </thead>
     </tbody>
   </table>
   

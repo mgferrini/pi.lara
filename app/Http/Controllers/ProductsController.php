@@ -138,7 +138,7 @@ class ProductsController extends Controller
                 return redirect('/adminProducts'); 
             }
          
-            $ruta = $request->file("image")->store('public/img');
+            $ruta = $request->file("image")->store('public/products');
             $nombreArchivo= basename($ruta);
     
             $edit= $request->all();  

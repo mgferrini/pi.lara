@@ -39,6 +39,7 @@ Route::get('/fin', function () {
     return view('fin');
 });
 Route::get('/perfil/{id}', 'PerfilController@show') ;
+Route::patch('/perfil/{id}', 'PerfilController@update'); 
 Route::get("/product/{id}", "ProductsController@show");
 Route::get("/category/{id}", "CategoriesController@show");
 Route::get("/adminProducts", "ProductsController@index");

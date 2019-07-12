@@ -83,7 +83,7 @@
                                     @csrf
                                 <input  type="submit" class="btn botcarrito" value="Agregar al carrito">
                             @else
-                                <form class="form-inline my-2 my-lg-0" action="/cart/{{$product->id}}/{{ Auth::user()->id }}" method="post">
+                                <form class="form-inline my-2 my-lg-0" action="/carrito/{{$product->id}}/{{ Auth::user()->id }}" method="post">
                                     @csrf
                                 <input  type="submit" class="btn botcarrito" value="Agregar al carrito">
                                 @endguest

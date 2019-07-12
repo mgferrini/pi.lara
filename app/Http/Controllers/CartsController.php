@@ -41,9 +41,8 @@ class CartsController extends Controller
 
             $cartProducts =\App\Cart::query()->select('id','user_id', 'product_id', 'price', 'quantity')->where('user_id', 'like',  $idUser);
 
-            return view('/ventas/carrito', [
-                'cartProducts' => $cartProducts->get()
-            ]);
+            return $this->show($idUser);
+         
         }
          
 
@@ -65,9 +64,8 @@ class CartsController extends Controller
             {
                 $product->delete();
                $cartProducts =\App\Cart::query()->select('id','user_id', 'product_id', 'price', 'quantity')->where('user_id', 'like',  $idUser);
-                return view('/ventas/carrito', [
-                    'cartProducts' => $cartProducts->get()
-                ]);
+               
+               return $this->show($idUser);
                
             }
         }

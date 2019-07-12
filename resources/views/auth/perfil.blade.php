@@ -24,7 +24,7 @@
 	<section class="registro row">
 		<article class="form regformulario col-xs-12 col-md-12 col-lg-12">
 			<h2 class="regtitulo">Modifica tus datos</h2><br>
-			<form class="datosusuario" action="{{url('/auth',$user->id)}}" method="POST" enctype= "multipart/form-data"  >
+			<form class="datosusuario" action="{{url('/perfil',$user->id)}}" method="POST" enctype= "multipart/form-data"  >
 				@csrf
 				{{ method_field('PATCH') }}
 				<div class="form-row">

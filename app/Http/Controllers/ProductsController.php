@@ -12,14 +12,19 @@ class ProductsController extends Controller
 
         $this->middleware('auth')->only(''); //esto aplica el middelware a todos los metodos de este controlador/ si le agrego el only es solo para esos metodos / y tambien puedo poner el except para exceptuar paginas
     }
+
+    /*Products Page*/
     public function show($id){
     
         $product=Product::find($id);
         $categories = Category::all();
+        $products=Product::all();
+      
         
         return view('product', [
             'product' => $product,
             'categories' => $categories,
+            'products' => $products,
             ]);
     
         }
@@ -50,7 +55,7 @@ class ProductsController extends Controller
    // $ruta = $req->file("image")->store();
      //  $nombreArchivo= basename($ruta);
      
-       $rutaArchivo=$req['image']->store('public/img');
+       $rutaArchivo=$req['image']->store('public/products');
        $nombreArchivo=basename($rutaArchivo);
 
         $product = \App\Product::create([
@@ -64,7 +69,7 @@ class ProductsController extends Controller
             'category_id' =>$req->get('category_id'),
             'image' =>$nombreArchivo,
         ]);
-        return redirect("/admin/adminProducts");
+        return redirect("/adminProducts");
 
     }
     private function getValidationRules() 
@@ -98,7 +103,11 @@ class ProductsController extends Controller
 
     public function delete($id){
         $product=Product::find($id);
-        return view('admin/productDelete')->with('product',$product);
+        $categories = Category::all();
+        return view('admin/productDelete',[
+            'product' => $product,
+            'categories' => $categories,
+        ]);
         }
 
      public function destroy(\App\Product $product)
@@ -129,7 +138,7 @@ class ProductsController extends Controller
                 return redirect('/adminProducts'); 
             }
          
-            $ruta = $request->file("image")->store('public/img');
+            $ruta = $request->file("image")->store('public/products');
             $nombreArchivo= basename($ruta);
     
             $edit= $request->all();  
@@ -150,4 +159,9 @@ class ProductsController extends Controller
                 'image' => "image"
             ];
         }
+
+       
+
+       
+
 }

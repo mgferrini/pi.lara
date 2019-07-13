@@ -27,7 +27,7 @@
                                     <i class="fas fa-user-plus fa-md icon"></i> 
                                 </a>  
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="/perfil"><i class="navuser">{{ __('Editar Perfil') }}</i></a>
+                                    <a class="dropdown-item" href="/perfil/{{ Auth::user()->id }}"><i class="navuser">{{ __('Editar Perfil') }}</i></a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
@@ -38,6 +38,11 @@
                                     </form>
                                 </div>
                             </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" href="/carrito/{{Auth::user()->id }}">
+                                        <i class="fas fa-shopping-basket fa-md icon navcart"></i>
+                                    </a>
+                                </li>
                             @if(Auth::user()->role === "2")
                                 <li class="nav-item"> 
                                 <a class="adminHeader" href="/adminProducts">
@@ -46,11 +51,7 @@
                                 </li>
                             @endif
                         @endguest
-	                        <li class="nav-item">
-	                            <a class="nav-link" href="#">
-	                                <i class="fas fa-shopping-basket fa-md icon navcart"></i>
-	                            </a>
-	                        </li>
+	                       
 	                 </ul>
 	            </div>
 	        </nav>

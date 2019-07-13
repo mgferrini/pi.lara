@@ -11,13 +11,25 @@ a:hover{
     text-decoration: none;
     color:#0bb791;
 }
+.articulos{
+    padding: 10px 10px;
+    width: 100%;
+    display:flex;
+    flex-wrap: wrap; 
+    flex-direction: row;
+    text-align: center;
+    /*background-color: rgba(224, 224, 224, 0.93);*/
+    margin-top: 20px;
+  }
 .botcarrito{
     background-color: white ;
     color: #0bb791;
     font-size: 16px;
     margin-bottom: 20px;
     border: solid 1px  #0bb791;
-
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .botcarrito:hover{
     background-color: #cbdbd2 ;
@@ -42,16 +54,6 @@ a:hover{
 .imgPRel{
     width:100%
 }
-.articulos{
-    padding: 10px 10px;
-    width: 100%;
-    display:flex;
-    flex-wrap: wrap; 
-    flex-direction: row;
-    text-align: center;
-    /*background-color: rgba(224, 224, 224, 0.93);*/
-    margin-top: 20px;
-  }
   .imgCat{
     width:100%;
     height: 300px;
@@ -69,7 +71,7 @@ a:hover{
       font-weight: bold;
   }
   .banner2{
-    
+    background-image: url(../img/soap_0053.jpg);
     height: 40vh;
     background-size: cover;
     text-align: center;
@@ -92,8 +94,26 @@ a:hover{
   .ColTitle{
       font-weight: bold;
       font-size: 16px;
+      font:white;
   }
   .imgDel{
     width:200px;
+}
+.tableTitles{
+    background-color: gray;
+   
+}
+.miniatura{
+width: 50px;
+}
+.tableTotal{
+    background-color: #cbdbd2;
+   
+}
+.botones{
+    justify-content: flex-end;
+}
+.imgFin{
+    width:600px;
 }
   

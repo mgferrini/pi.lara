@@ -15,7 +15,10 @@
                 <li class="breadcrumb-item">
                     <a href="/">Home</a></li>
                     <li class="breadcrumb-item">
-                        <a href="">Categoria</a></li>
+                        @foreach($categories as $category)
+                            <a href="">  {{($category->id == $product->category->parent) ? $category->name :'' }}</a>
+                        @endforeach
+                    </li>
                 <li class="breadcrumb-item"><a href="{{ url('category/'. $product->category_id ) }}">{{$product->category->name}}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{$product->name}}</li>
             </ol> 
@@ -28,19 +31,19 @@
                                 <aside class="col-sm-6">
                                     <article class="gallery-wrap"> 
                                         <div class="img-big-wrap">
-                                            <div> <a href=""><img src=  {{ asset('img/' . $product->image) }} class="imgArt"></a></div>
-                                        </div> <!-- slider-product.// -->
-                                    </article> <!-- gallery-wrap .end// -->
+                                            <div> <a href=""><img src={{ asset('storage/products/' . $product->image) }} class="imgArt"></a></div>
+                                        </div> 
+                                    </article> 
                                 </aside>
                         <aside class="col-sm-6">
+                               
                             <article class="card-body">
-                        <!-- short-info-wrap -->
                                 <h3 class="title mb-3 tituloprod">{{$product->name}}</h3>
                                 <div class="mb-3"> 
                                     <var class="price h5"> 
                                         <span class="currency precio">$</span><span class="num precio">{{$product->price}}</span>
                                     </var> 
-                                </div> <!-- price-detail-wrap .// -->
+                                </div> 
                                 <dl>
                                     <dt>Descripción</dt>
                                     <dd><p>{{$product->description}} </p></dd>
@@ -59,31 +62,38 @@
                                             <i class="fa fa-star {{($product->rating>4)?'checked':''}}"></i> 
                                         </span>
                                     </ul>
-                                </div> <!-- rating-wrap.// -->
+                                </div> 
                                
                                 <div class="row">
                                     <div class="col-sm-5">
                                         <dl class="dlist-inline">
                                             <dt>Cantidad: </dt>
                                             <dd> 
-                                                <select class="form-control form-control-sm" style="width:70px;">
+                                                <select class="form-control form-control-sm" name="quantity" style="width:70px;">
                                                     <option> 1 </option>
                                                     <option> 2 </option>
                                                     <option> 3 </option>
                                                 </select>
                                             </dd>
-                                        </dl>  <!-- item-property .// -->
-                                    </div> <!-- col.// -->
-                                </div> <!-- row.// -->
-                            
-                                <a href="#" class="btn botcarrito"> Agregar al carrito </a>
-            <!-- short-info-wrap .// -->
-                            </article> <!-- card-body.// -->
-                        </aside> <!-- col.// -->
-                    </div> <!-- row.// -->
-                    </main> <!-- card.// -->
+                                        </dl>  
+                                    </div> 
+                                </div> 
+                                @guest
+                                <form class="form-inline my-2 my-lg-0" action="{{ route('login') }}" method="">
+                                    @csrf
+                                <input  type="submit" class="btn botcarrito" value="Agregar al carrito">
+                            @else
+                                <form class="form-inline my-2 my-lg-0" action="/carrito/{{$product->id}}/{{ Auth::user()->id }}" method="post">
+                                    @csrf
+                                <input  type="submit" class="btn botcarrito" value="Agregar al carrito">
+                                @endguest
+                            </article> 
+                            </form>
+                        </aside> 
+                    </div> 
+                    </main> 
             
-            <!-- PRODUCT DETAIL -->
+         
                     <article class="card mt-3">
                         <div class="card-body">
                             <h4>Detalles</h4>
@@ -102,12 +112,12 @@
                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                     consequat. </p>
             
-                        </div> <!-- card-body.// -->
-                    </article> <!-- card.// -->
+                        </div> 
+                    </article> 
             
-            <!-- PRODUCT DETAIL .// -->
+         
             
-                </div> <!-- col // -->
+                </div> 
                 <aside class="col-xl-2 col-md-3 col-sm-12 prel">
             
                     <div class="card mt-3">
@@ -117,46 +127,45 @@
                         <div class="card-body row">
                             <div class="col-md-12 col-sm-3">
                                 <figure class="item border-bottom mb-3">
-                                    <a href="#" class="img-wrap"> <img src="img/soapreg2.png" class="img-md imgPRel"></a>
+                                    <a href="{{ url('product/'. $products->random()->id ) }}" class="img-wrap"> <img src="{{ asset('storage/products/' . $products->random()->image) }}" class="img-md imgPRel"></a>
                                     <figcaption class="info-wrap">
-                                        <a href="#" class="title">Crema de citronella</a>
+                                        <a href="{{ url('product/'. $products->random()->id ) }}" class="title">{{$products->random()->name}}</a>
                                         <div class="price-wrap mb-3">
-                                            <span class="price-new">$280</span> <del class="price-old">$280</del>
-                                        </div> <!-- price-wrap.// -->
+                                            <span class="price-new">$ {{$products->random()->price}}</span> 
+                                        </div> 
                                     </figcaption>
-                                </figure> <!-- card-product // -->
-                            </div> <!-- col.// -->
+                                </figure> 
+                            </div> 
                             <div class="col-md-12 col-sm-3">
                                 <figure class="item border-bottom mb-3">
-                                    <a class="img-wrap"> <img src="img/soapreg2.png" class="img-md imgPRel"></a>
-                                    <figcaption class="info-wrap">
-                                        <a href="#" href="#" class="title">Aceite esencial</a>
-                                        <div class="price-wrap mb-3">
-                                            <span class="price-new">$280</span>
-                                        </div> <!-- price-wrap.// -->
+                                        <a href="{{ url('product/'. $products->random()->id ) }}" class="img-wrap"> <img src="{{ asset('storage/products/' . $products->random()->image) }}" class="img-md imgPRel"></a>
+                                        <figcaption class="info-wrap">
+                                            <a href="{{ url('product/'. $products->random()->id ) }}" class="title">{{$products->random()->name}}</a>
+                                            <div class="price-wrap mb-3">
+                                                <span class="price-new">$ {{$products->random()->price}}</span> 
+                                        </div> 
                                     </figcaption>
-                                </figure> <!-- card-product // -->
-                            </div> <!-- col.// -->
+                                </figure> 
+                            </div> 
                             <div class="col-md-12 col-sm-3">
                                 <figure class="item border-bottom mb-3">
-                                    <a href="#" class="img-wrap"> <img src="img/soapreg2.png" class="img-md imgPRel"></a>
-                                    <figcaption class="info-wrap">
-                                        <a href="#" class="title">Limpieza absoluta</a>
-                                        <div class="price-wrap mb-3">
-                                            <span class="price-new">$280</span>
-                                        </div> <!-- price-wrap.// -->
+                                        <a href="{{ url('product/'. $products->random()->id ) }}" class="img-wrap"> <img src="{{ asset('storage/products/' . $products->random()->image) }}" class="img-md imgPRel"></a>
+                                        <figcaption class="info-wrap">
+                                            <a href="{{ url('product/'. $products->random()->id ) }}" class="title">{{$products->random()->name}}</a>
+                                            <div class="price-wrap mb-3">
+                                                <span class="price-new">$ {{$products->random()->price}}</span> 
+                                        </div>
                                     </figcaption>
-                                </figure> <!-- card-product // -->
-                            </div> <!-- col.// -->
-                        </div> <!-- card-body.// -->
-                    </div> <!-- card.// -->
-                </aside> <!-- col // -->
-            </div> <!-- row.// -->
+                                </figure> 
+                            </div> 
+                        </div> 
+                    </div> 
+                </aside> 
+            </div> 
             
             
             
-        </div><!-- container // -->
+        </div>
     </section>
-            <!-- ========================= SECTION CONTENT .END// ========================= -->
-       
+      
 @endsection

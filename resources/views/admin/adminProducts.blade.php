@@ -5,13 +5,13 @@
 <section class="">
 		<h1 class="regh1">Administrar Productos</h1>
     </section>
-    <article class="form regformulario col-xs-12 col-md-12 col-lg-12">
+    <article class="form  col-xs-12 col-md-12 col-lg-12">
         <h2 class="regtitulo"><strong>Listado de Productos</strong></h2>
   <br><br>
   <h5>Nuevo Producto:&nbsp;&nbsp;&nbsp;<button class="botAdmin"> <a href="{{ url('/newProduct') }}">Agregar </a> </button>  </h5>
   <br> 
   <table class="table">
-    <thead>
+    <thead class="tableTitles">
       <tr>
         <th scope="col">#</th>
         <th scope="col" class="ColTitle">Nombre</th>
@@ -20,8 +20,8 @@
         <th scope="col" class="ColTitle">Eliminar</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
+    <tbody class="regformulario">
+      <tr >
       @foreach ($products as $product)
           <th scope="row">{{$product->id}}</th>
           <td>{{$product->name}}</td>

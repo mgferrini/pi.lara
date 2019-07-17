@@ -54,4 +54,10 @@ Route::post('/carrito/{id}/{user}', 'CartsController@addOne');
 Route::get('/carrito/{user}', 'CartsController@show') ; 
 Route::delete('/cartDel/{product}/{id}', 'CartsController@destroy') ; 
 Route::post('/cart/{id}/{user}', 'CartsController@addMany'); 
-
+Route::get('/contacto', function () {
+    return view('contacto');
+});
+Route::post('/contacto', function (){
+    //return view('home')->with(['messageToUser'=> 'gracias, nos estaremos comunicando con uds en los proximos 30 años.' ]);
+    return redirect()->back()->with(['messageToUser'=> 'gracias, nos estaremos comunicando con uds en los proximos 30 años.' ]);
+  });

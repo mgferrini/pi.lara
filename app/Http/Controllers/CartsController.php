@@ -11,7 +11,7 @@ use DB;
 class CartsController extends Controller
 {
  
-        public function addOne($idProd, $idUser){
+        public function addOne($idProd, $idUser, $cantidad=1){
 
             $product =  Product::find($idProd);
             $user = User::find($idUser);
@@ -20,7 +20,7 @@ class CartsController extends Controller
                 'product_id' => $product->id,
                 'cart_id' =>$user->id,
             ]);
-            $cart->quantity = $cart->quantity + 1;
+            $cart->quantity = $cart->quantity + $cantidad;
             $cart->price= $product->price;
             $cart->save();
             return $this->show($idUser);
@@ -28,20 +28,7 @@ class CartsController extends Controller
 
         public function addMany(request $request, $idProd, $idUser){
 
-            $product =  Product::find($idProd);
-            $user = User::find($idUser);
-            $cart = \App\Cart::create([
-                'user_id' => $user->id,
-                'product_id' => $product->id,
-                //'quantity' => $request->get('quantity'),
-                'quantity' => 1,
-                'price' => $product->price,
-                'cart_id' =>$user->id,
-            ]);
-
-            $cartProducts =\App\Cart::query()->select('id','user_id', 'product_id', 'price', 'quantity')->where('user_id', 'like',  $idUser);
-
-            return $this->show($idUser);
+            return $this->addOne($idProd, $idUser, $request->quantity);
          
         }
          

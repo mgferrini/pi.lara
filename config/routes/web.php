@@ -51,7 +51,7 @@ Route::get("/editProduct/{id}", "ProductsController@edit")->middleware('auth', '
 Route::patch('/admin/{product}', 'ProductsController@update')->middleware('auth', 'role:admin');
 Route::post('/searchResults', 'HomeController@search');
 Route::post('/carrito/{id}/{user}', 'CartsController@addOne'); 
-Route::get('/carrito/{user}', 'CartsController@show') ; 
+Route::get('/carrito/{id}', 'CartsController@show') ; 
 Route::delete('/cartDel/{product}/{id}', 'CartsController@destroy') ; 
 Route::post('/cart/{id}/{user}', 'CartsController@addMany'); 
 Route::get('/contacto', function () {
@@ -60,3 +60,9 @@ Route::get('/contacto', function () {
 Route::post('/contacto', function (){
     return redirect()->back()->with(['messageToUser'=> 'gracias, nos estaremos comunicando con uds en los proximos 30 años.' ]);
   });
+
+  //Carrito del Guest
+  Route::get('/carritoGuest', 'CartsController@showGuest')->name('carritoGuest');//->middleware('auth');
+  Route::get('carritoGuest/{id}', "CartsController@addGuest")->name('carritoGuest.add');//->middleware('auth');
+//Carrito de compras elimino productos 
+  Route::get('carritoGuest/remove/{id}', "CartsController@removeGuest")->name('cart.remove');//->middleware('auth');

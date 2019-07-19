@@ -63,7 +63,7 @@
                                     </ul>
                                 </div> 
                                 @guest
-                                    <form class="form-inline my-2 my-lg-0" action="{{ route('login') }}" method="">
+                                    <form class="form-inline my-2 my-lg-0" action="/carritoGuest/{{$product->id}}" method="">
                                 @else
                                     <form class="form-inline my-2 my-lg-0" action="/cart/{{$product->id}}/{{ Auth::user()->id }}" method="post">
                                 @endguest

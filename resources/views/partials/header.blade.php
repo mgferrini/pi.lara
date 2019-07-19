@@ -16,7 +16,7 @@
                   <a class="dropdown-item loginButton" href=""><i class="navuser">Login</i></a>
                   <a class="dropdown-item" href="{{ route('register') }}"><i class="navuser">{{ __('Registrarse') }}</i></a>
                 </div>
-                <form class="formLogin" accept-charset="UTF-8" role="form" action="" method="post">
+                <form class="formLogin" accept-charset="UTF-8" role="form" action="{{ route('login') }}" method="post">
                   @csrf
                     <a class="formLogin-close"></a>
                     <div class="panel-heading">
@@ -39,22 +39,24 @@
                       @enderror
                     </div>
                     <div class="checkbox">
-                      <input name="remember" type="checkbox" id="remember">
-                      <label class="form-check-label" for="remember">
-                        Recordarme
-                      </label>
+                        <input name="remember" type="checkbox" id="remember" {{ old('remember') ? 'checked' : '' }} >
+                        <label class="form-check-label" for="remember">
+                              {{ __('Recordarme') }}
+                        </label>
                     </div>
                     <br>
                     <input class="btn regboton" type="submit" value="Ingresar">
                     <hr>
                     <div class="forgot">
-                      <a class="btn btn-link" href="http://localhost:8000/password/reset">
-                        Olvide mi contraseña
-                      </a>
-                    </div>
-                  </form>
-              </li>
-            @else
+                        @if (Route::has('password.request'))
+                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                        {{ __('Olvide mi contraseña') }}
+                    </a>
+                     @endif
+                   </div>
+                 </form>
+               </li>
+             @else
               <p>
                 <img height="35" width="35" class="img-fluid rounded-circle" src="{{ asset('storage/avatars/' . auth()->user()->avatar) }}">
                 <span class="fontHeader">Hola {{ Auth::user()->first_name }}</span>

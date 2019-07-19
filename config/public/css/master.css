@@ -1,0 +1,21 @@
+@import "general.css"; /* General */
+@import "header.css";
+@import "navbar.css";
+
+@import "carousel.css";
+
+@import "usuario.css"; /* Pagina de Registro y login */
+@import "categoria.css";
+@import "articulo.css";
+
+@import "footer.css";
+
+/* LOS CSS CON LOS MEDIA QUERY SE CARGAN EN ORDEN, NO ALTERAR ESTAS LINEAS
+PONER CADA MEDIA QUERY EN EL ARCHIVO CORRESPONDIENTE */
+@import "media-xsmall.css"; 
+@import "media-small.css"; 
+@import "media-medium.css"; 
+@import "media-large.css"; 
+
+/*Archivo custom.css es de pruebas locales en sus maquinas, esto siempre "estara/debe estar" vacio en el proyecto master, guarden copia si estan probando algunos cambios*/
+@import "custom.css"; 

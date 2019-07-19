@@ -13,19 +13,30 @@
                   <i class="fas fa-user-plus fa-md icon"></i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item account-menu-enter" href="#"><i class="navuser">Login</i></a>
+                  <a class="dropdown-item loginButton" href=""><i class="navuser">Login</i></a>
                   <a class="dropdown-item" href="{{ route('register') }}"><i class="navuser">{{ __('Registrarse') }}</i></a>
                 </div>
-                <form class="write-us-form" accept-charset="UTF-8" role="form" action="" method="post">
-                    <a class="write-us-form-close"></a>
+                <form class="formLogin" accept-charset="UTF-8" role="form" action="" method="post">
+                  @csrf
+                    <a class="formLogin-close"></a>
                     <div class="panel-heading">
                       <h2 class="regtitulo">Usuario y Contraseña</h2><br>
                     </div>
                     <div class="form-group">
-                    <input class="form-control" placeholder="E-mail" name="email" value="" required autocomplete="email" autofocus="" id="email" type="email">
+                      <input class="form-control @error('email') is-invalid @enderror" placeholder="E-mail" name="email" type="text" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                      @error('email')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                      @enderror
                     </div>
                     <div class="form-group">
-                      <input class="form-control " placeholder="Password" name="password" type="password" required="" autocomplete="current-password">
+                      <input class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password" type="password" required autocomplete="current-password">
+                      @error('password')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                      @enderror
                     </div>
                     <div class="checkbox">
                       <input name="remember" type="checkbox" id="remember">

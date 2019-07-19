@@ -1,4 +1,4 @@
-.write-us-form {
+.formLogin {
   display: none;
   width: 396px;
 /*   margin: 0 0 0 -315px; */
@@ -11,7 +11,7 @@
   z-index: 1000;
 }
 
-.write-us-form-close {
+.formLogin-close {
   display: block;
   width: 29px;
   height: 24px;
@@ -26,8 +26,8 @@
   display: block;
 }
 
-.write-us-form-close::after,
-.write-us-form-close::before {
+.formLogin-close::after,
+.formLogin-close::before {
   content: '';
   width: 26px;
   height: 6px;
@@ -38,41 +38,41 @@
   left: 50%;
 }
 
-.write-us-form-close::after {
+.formLogin-close::after {
   transform: rotate(45deg);
 }
 
-.write-us-form-close::before {
+.formLogin-close::before {
   transform: rotate(-45deg);
 }
 
-.write-us-form .name,
-.write-us-form .email {
+.formLogin .name,
+.formLogin .email {
   width: 220px;
   margin: 0 20px 0 0;
   float: left;
 }
 
-.write-us-form .email {
+.formLogin .email {
   margin: 0;
 }
 
-.write-us-form fieldset {
+.formLogin fieldset {
   font-size: 0;
   border: none;
   padding: 0;
   margin: 0;
 }
 
-.write-us-form label {
+.formLogin label {
   display: block;
   margin: 0 0 10px;
   font: 500 16px/1.13 Roboto, sans-serif;
 }
 
-.write-us-form input[type=text],
-.write-us-form input[type=email],
-.write-us-form textarea {
+.formLogin input[type=text],
+.formLogin input[type=email],
+.formLogin textarea {
   width: 100%;
   margin: 0;
   padding: 8px 10px;
@@ -80,22 +80,22 @@
   outline: 0;
   border-radius: 3px;
   box-sizing: border-box;
-  font: 500 12px/1.5 Roboto, sans-serif;
-  text-transform: uppercase;
+  /* font: 500 12px/1.5 Roboto, sans-serif;
+  text-transform: uppercase; */
 }
 
-.write-us-form .free-text {
+.formLogin .free-text {
   margin: 0 0 50px;
   padding: 20px 0 0;
   clear: both;
 }
 
-.write-us-form textarea {
+.formLogin textarea {
   color: #000;
   text-decoration: none;
 }
 
-.write-us-form textarea {
+.formLogin textarea {
   display: block;
   min-height: 115px;
   resize: none;

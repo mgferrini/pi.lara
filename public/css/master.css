@@ -9,7 +9,7 @@
 @import "articulo.css";
 
 @import "footer.css";
-@@import "popup.css";
+@import "popup.css";
 
 /* LOS CSS CON LOS MEDIA QUERY SE CARGAN EN ORDEN, NO ALTERAR ESTAS LINEAS
 PONER CADA MEDIA QUERY EN EL ARCHIVO CORRESPONDIENTE */

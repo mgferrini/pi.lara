@@ -3,8 +3,8 @@
   @include('partials.head')
   <body>
   <div class="container-fluid">
-    @include('partials.header')  
-    @include('partials.navBar')
+    @include('partials.header')
+    @include('partials.navbar')
     @yield("principal")
     @include("partials.footer")
   </div>

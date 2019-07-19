@@ -22,6 +22,7 @@
                     <div class="panel-heading">
                       <h2 class="regtitulo">Usuario y Contraseña</h2><br>
                     </div>
+                    <div id="errorLogin"></div>
                     <div class="form-group">
                       <input class="form-control @error('email') is-invalid @enderror" placeholder="E-mail" name="email" type="text" value="{{ old('email') }}" required autocomplete="email" autofocus>
                       @error('email')

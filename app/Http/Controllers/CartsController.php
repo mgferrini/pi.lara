@@ -7,6 +7,7 @@ use \App\Product;
 use \App\Cart;
 use \App\User;
 use DB;
+use App\Http\Middleware\Authenticate;
 
 class CartsController extends Controller
 {
@@ -35,6 +36,7 @@ class CartsController extends Controller
 
             public function show($idUser){
                 $user = User::find($idUser);
+
                 $cartProducts =\App\Cart::query()->select('id','user_id', 'product_id', 'price', 'quantity', DB::raw('(price * quantity) as subtotal'))->where('user_id', 'like',  $idUser);
                
                 $cartProducts = $cartProducts->get();
@@ -55,6 +57,42 @@ class CartsController extends Controller
                return $this->show($idUser);
                
             }
+
+            // ESTO ES COMO LO HIZO DANI
+            public function addGuest(request $request, $id)
+            {
+          
+            $cantidad = (int) $request->quantity;
+
+              $product =  Product::find($id);
+              $product = [
+                    'id' => $product->id,
+                    "name" => $product->name,
+                    'description' => $product->description,
+                    'price' => $product->price,
+                    'image' => $product->image,
+                    'quantity' => $cantidad,
+                    'subtotal' => $product->price * $cantidad,
+              ];
+//dd($product['subtotal']);
+               session()->put("user.cart." . $id, $product);
+     
+
+               return view('/ventas/carritoGuest' );
+            }
+
+            public function showGuest()
+            {
+                return view('/ventas/carritoGuest');
+            }
+
+            public function removeGuest($id)
+            {
+                session()->pull('user.cart.' . $id, "default");
+                return view('/ventas/carritoGuest');
+            }
+        
+
         }
 
 

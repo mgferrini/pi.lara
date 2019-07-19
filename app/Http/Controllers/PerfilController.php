@@ -19,15 +19,18 @@ class PerfilController extends Controller
 }
 
 
-public function update(Request $request, \App\User $user)
+public function update(Request $request, \App\User $id)
 {
-
+    $user=USER::find($id);
+    
     $this->validate($request, $this->getValidationRulesEdit(), $this->mensajes()); 
+    
     if($request->file("avatar") == null){
-        $user->first_name = request('first_name');
-        $user->last_name = request('last_name');
-        $user->email = request('email');
-        $user->password = bcrypt(request('password'));
+
+        $user->first_name = $request->input("first_name");
+        $user->last_name = $request->input('last_name');
+       $user->email = $request->input('email');
+        $user->password = bcrypt($request->input('password'));
 
         $user->save();
         return redirect('/'); 

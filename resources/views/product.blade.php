@@ -63,7 +63,7 @@
                                     </ul>
                                 </div> 
                                 @guest
-                                    <form class="form-inline my-2 my-lg-0" action="{{ route('login') }}" method="">
+                                    <form class="form-inline my-2 my-lg-0" action="/carritoGuest/{{$product->id}}" method="">
                                 @else
                                     <form class="form-inline my-2 my-lg-0" action="/cart/{{$product->id}}/{{ Auth::user()->id }}" method="post">
                                 @endguest
@@ -73,11 +73,8 @@
                                             <dl class="dlist-inline">
                                                 <dt>Cantidad: </dt>
                                                 <dd> 
-                                                    <select class="form-control form-control-sm" name="quantity" style="width:70px;">
-                                                        <option> 1 </option>
-                                                        <option> 2 </option>
-                                                        <option> 3 </option>
-                                                    </select>
+                                                    <input type="number" value=1 min=0 step=1 class="form-control form-control-sm" name="quantity" style="width:70px;">
+                                                    
                                                 </dd>
                                             </dl>  
                                         </div> 

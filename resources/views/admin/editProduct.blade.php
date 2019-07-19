@@ -26,7 +26,7 @@
             <section class="row">
                     <article class=" col-xs-12 col-md-4 col-lg-4">
                         <br>
-                            <div> <a href=""><img src=  {{ asset('img/' . $product->image) }} class="imgArt"></a></div>
+                            <div> <a href=""><img src=  {{ asset('storage/products/' . $product->image) }} class="imgArt"></a></div>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <br>

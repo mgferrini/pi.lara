@@ -26,7 +26,7 @@ close.addEventListener("click", function (evt) {
 });
 
 form.addEventListener("submit", (evt) => {
-  if (!pass.value || !email.value || pass.value) {
+  if (!pass.value || !email.value) {
     evt.preventDefault();
     popup.classList.add("is-invalid");
     errorLogin.classList.add('alert-danger');

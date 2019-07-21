@@ -1,7 +1,8 @@
 .formLogin {
   display: none;
   width: 396px;
-/*   margin: 0 0 0 -315px; */
+  margin: 100px 0 0 -315px;
+  /* margin: 100px 0 0 -180px; */
   padding: 17px 85px;
   background: #cbdbd2;
   box-shadow: 0 20px 40px 0 rgba(0,1,1,0.75);

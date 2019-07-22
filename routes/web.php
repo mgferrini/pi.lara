@@ -35,9 +35,8 @@ Route::get('/logout', function () {
 Route::get('/nosotros', function () {
     return view('nosotros');
 });
-Route::get('/fin', function () {
-    return view('fin');
-});
+
+Route::get('/fin', 'CartsController@theEnd') ->middleware('auth');
 Route::get('/perfil/{id}', 'PerfilController@show') ;
 Route::patch('/perfil/{id}', 'PerfilController@update'); 
 Route::get("/product/{id}", "ProductsController@show");

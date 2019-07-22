@@ -75,8 +75,8 @@ class CartsController extends Controller
                     'subtotal' => $product->price * $cantidad,
               ];
 //dd($product['subtotal']);
+          
                session()->put("user.cart." . $id, $product);
-     
 
                return view('/ventas/carritoGuest' );
             }
@@ -84,6 +84,11 @@ class CartsController extends Controller
             public function showGuest()
             {
                 return view('/ventas/carritoGuest');
+            }
+
+            public function theEnd()
+            {
+                return view('/fin');
             }
 
             public function removeGuest($id)

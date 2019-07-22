@@ -6,7 +6,7 @@
 	<h1 class="regh1">Mi Carrito</h1>
 </section>
     <article class="form  col-xs-12 col-md-12 col-lg-12">
-    <table class="table">
+    <table class="table" id="miTabla">
         <thead class="tableTitles">
         <tr>
         <th scope="col"></th>
@@ -18,20 +18,23 @@
       </tr>
     </thead>
     <tbody class="regcarrito">
+       
             @if (session()->get('user.cart') !== null )
       <tr >
-       
+          <form class="form-inline my-2 my-lg-0" action="" method="post">
+              @csrf
         @foreach (session()->get('user.cart') as $product)
     
           <th scope="row"><a href="/product/{{$product['id']}}"><img class="miniatura" src="{{ asset('storage/products/' . $product['image']) }}"></a></th>
           <td><a href="/product/{{$product['id']}}">{{$product['name']}}</a></td>
-          <td><div class="price"> $ {{$product['price']}}</div></td>
-          <td><input id="quantity"  class="form-control cant" type="number" value=1  /></td>  <!-- No toma cuando le pongo value=  $product['quantity']-->
-          <td><div class="subtotal">{{$product['subtotal']}} </div></td>  <!-- No toma cuando le pongo value=  $product['quantity o subtotal']-->
+          <td>    <input type="text" class="form-control price" id="price{{$product['id']}}" value="{{$product['price']}}" readonly> </td>
+          <td><input item={{$product['id']}} id="quantity{{$product['id']}}"  min="1" class="form-control cant quantity" type="number" value= "{{$product['quantity']}}" /></td>  <!-- No toma cuando le pongo value=  $product['quantity']-->
+          <td><input type="text" class="form-control subTotal" id="subTotal{{$product['id']}}" value="{{$product['subtotal']}}"></td>
           <td class="text-right"><a href='{{route('cart.remove', $product['id'])}}' class="btn btn-sm btn-secondary"><i class="fa fa-trash"></i> </a> </td>
         </tr>
       </tr>
       @endforeach
+    </form>
       @endif
       <tr >
       <th> </th>
@@ -48,7 +51,7 @@
           <th scope="col" class="ColTitle">TOTAL</th>
           <th scope="col" class="ColTitle"></th>
           <th scope="col" class="ColTitle"></th>
-          <th scope="col" class="ColTitle"></th>
+          <th scope="col" class="ColTitle"><div id="sum"></div> </th>
           <th scope="col" class="ColTitle"></th>
         </tr>
       </thead>
@@ -56,6 +59,8 @@
   </table>
   <br><br>
   <div class="form-row botones">
+  <button class="botAdmin" id="eventBoton">Actualizar Carrito</button>
+  &nbsp &nbsp &nbsp &nbsp &nbsp
   <button class="botAdmin"> <a href="/">Seguir Comprando</a></button> 
   &nbsp &nbsp &nbsp &nbsp &nbsp
   <button class="botAdmin"><a href="/fin">Ir al checkout</a></button> 

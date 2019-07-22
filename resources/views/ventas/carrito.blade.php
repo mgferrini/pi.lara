@@ -24,9 +24,9 @@
     
           <th scope="row"><a href="/product/{{$product->product_id}}"><img class="miniatura" src="{{ asset('storage/products/' . $product->productos->image) }}"></a></th>
           <td><a href="/product/{{$product->product_id}}">{{$product->productos->name}}</a></td>
-          <td>{{$product->price}}</td>
-          <td>{{$product->quantity}}</td>
-          <td>{{$product->quantity * $product->price}}</td>
+          <td><div class="price">${{$product->price}}</div></td>
+          <td><div class="quantity">{{$product->quantity}}</div></td>
+          <td><div class="mult"></div></td>
             <form class="" action="/cartDel/{{$product->id}}/{{Auth::user()->id }}" method="post">
             @csrf
             {{ method_field('DELETE') }}

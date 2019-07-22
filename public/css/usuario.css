@@ -131,3 +131,12 @@
   
 /* hay qye hacer media query para que el titulo ppal y el titulo en cursiva no se muestren en mobile */
 /* hay que hacer media query para que la foto del jabon de registro no se muestre en moblile */
+
+
+.verde{
+  background-color: gray !important;
+  color: white;
+}
+.sobre{
+  padding-top: 10px;
+}

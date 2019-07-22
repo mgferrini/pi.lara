@@ -42,20 +42,27 @@ Route::get('/perfil/{id}', 'PerfilController@show') ;
 Route::patch('/perfil/{id}', 'PerfilController@update'); 
 Route::get("/product/{id}", "ProductsController@show");
 Route::get("/category/{id}", "CategoriesController@show");
-Route::get("/adminProducts", "ProductsController@index");
-Route::get('/newProduct', 'ProductsController@create');  
-Route::post('/adminProducts', 'ProductsController@store');
-Route::get('/productDelete/{id}', 'ProductsController@delete'); //->middleware('auth');
-Route::delete('/admin/{product}', 'ProductsController@destroy'); 
-Route::get("/editProduct/{id}", "ProductsController@edit");
-Route::patch('/admin/{product}', 'ProductsController@update');  
+Route::get("/adminProducts", "ProductsController@index")->middleware('auth', 'role:admin');
+Route::get('/newProduct', 'ProductsController@create')->middleware('auth', 'role:admin');
+Route::post('/adminProducts', 'ProductsController@store')->middleware('auth', 'role:admin');
+Route::get('/productDelete/{id}', 'ProductsController@delete')->middleware('auth', 'role:admin');
+Route::delete('/admin/{product}', 'ProductsController@destroy')->middleware('auth', 'role:admin');
+Route::get("/editProduct/{id}", "ProductsController@edit")->middleware('auth', 'role:admin');
+Route::patch('/admin/{product}', 'ProductsController@update')->middleware('auth', 'role:admin');
 Route::post('/searchResults', 'HomeController@search');
 Route::post('/carrito/{id}/{user}', 'CartsController@addOne'); 
-Route::get('/carrito/{user}', 'CartsController@show') ; 
+Route::get('/carrito/{id}', 'CartsController@show') ; 
 Route::delete('/cartDel/{product}/{id}', 'CartsController@destroy') ; 
 Route::post('/cart/{id}/{user}', 'CartsController@addMany'); 
-
-Route::post('/contacto', function (){
-  //return view('home')->with(['messageToUser'=> 'gracias, nos estaremos comunicando con uds en los proximos 30 años.' ]);
-  return redirect()->back()->with(['messageToUser'=> 'gracias, nos estaremos comunicando con uds en los proximos 30 años.' ]);
+Route::get('/contacto', function () {
+    return view('contacto');
 });
+Route::post('/contacto', function (){
+    return redirect()->back()->with(['messageToUser'=> 'gracias, nos estaremos comunicando con uds en los proximos 30 aÃ±os.' ]);
+  });
+
+  //Carrito del Guest
+  Route::get('/carritoGuest', 'CartsController@showGuest')->name('carritoGuest');//->middleware('auth');
+  Route::get('carritoGuest/{id}', "CartsController@addGuest")->name('carritoGuest.add');//->middleware('auth');
+//Carrito de compras elimino productos 
+  Route::get('carritoGuest/remove/{id}', "CartsController@removeGuest")->name('cart.remove');//->middleware('auth');

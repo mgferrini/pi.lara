@@ -35,8 +35,7 @@
                                         </div> 
                                     </article> 
                                 </aside>
-                        <aside class="col-sm-6">
-                               
+                        <aside class="col-sm-6">     
                             <article class="card-body">
                                 <h3 class="title mb-3 tituloprod">{{$product->name}}</h3>
                                 <div class="mb-3"> 
@@ -63,35 +62,31 @@
                                         </span>
                                     </ul>
                                 </div> 
-                               
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <dl class="dlist-inline">
-                                            <dt>Cantidad: </dt>
-                                            <dd> 
-                                                <select class="form-control form-control-sm" name="quantity" style="width:70px;">
-                                                    <option> 1 </option>
-                                                    <option> 2 </option>
-                                                    <option> 3 </option>
-                                                </select>
-                                            </dd>
-                                        </dl>  
-                                    </div> 
-                                </div> 
                                 @guest
-                                <form class="form-inline my-2 my-lg-0" action="{{ route('login') }}" method="">
-                                    @csrf
-                                <input  type="submit" class="btn botcarrito" value="Agregar al carrito">
-                            @else
-                                <form class="form-inline my-2 my-lg-0" action="/carrito/{{$product->id}}/{{ Auth::user()->id }}" method="post">
-                                    @csrf
-                                <input  type="submit" class="btn botcarrito" value="Agregar al carrito">
+                                    <form class="form-inline my-2 my-lg-0" action="/carritoGuest/{{$product->id}}" method="">
+                                @else
+                                    <form class="form-inline my-2 my-lg-0" action="/cart/{{$product->id}}/{{ Auth::user()->id }}" method="post">
                                 @endguest
-                            </article> 
-                            </form>
+                                @csrf
+                                    <div class="row">
+                                        <div class="col-sm-9">
+                                            <dl class="dlist-inline">
+                                                <dt>Cantidad: </dt>
+                                                <dd> 
+                                                    <input type="number" value=1 min=0 step=1 class="form-control form-control-sm" name="quantity" style="width:70px;">
+                                                    
+                                                </dd>
+                                            </dl>  
+                                        </div> 
+                                        <div class="col-sm-3">
+                                            <input  type="submit" class="btn botcarrito" value="Agregar al carrito">
+                                        </div>
+                                    </div>
+                                </form> 
+                            </article>
                         </aside> 
                     </div> 
-                    </main> 
+                </main> 
             
          
                     <article class="card mt-3">
@@ -161,10 +156,7 @@
                         </div> 
                     </div> 
                 </aside> 
-            </div> 
-            
-            
-            
+            </div>   
         </div>
     </section>
       

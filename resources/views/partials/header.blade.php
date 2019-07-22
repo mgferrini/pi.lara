@@ -17,6 +17,11 @@
                                         <a class="dropdown-item" href="{{ route('register') }}"><i class="navuser">{{ __('Registrarse') }}</i></a>
                                     </div>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('carritoGuest')}}">
+                                        <i class="fas fa-shopping-basket fa-md icon navcart"></i>
+                                    </a>
+                                </li>
                         @else
                             <p>
                                 <img height="35" width="35" class="img-fluid rounded-circle" src="{{ asset('storage/avatars/' . auth()->user()->avatar) }}">

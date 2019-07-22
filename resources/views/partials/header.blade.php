@@ -54,6 +54,9 @@
                         {{ __('Olvide mi contraseña') }}
                     </a>
                      @endif
+                     <div class="test">¿Acaso no estas registrado?<br>
+                       <a class="btn regboton" href="register">Registrate</a>
+                     </div>
                    </div>
                  </form>
                </li>

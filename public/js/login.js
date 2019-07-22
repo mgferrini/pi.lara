@@ -10,13 +10,6 @@ let errorLogin = document.getElementById('errorLogin');
 link.addEventListener("click", (evt) => {
   evt.preventDefault();
   popup.classList.add("login-popup-show");
-
-//   if (storage) {
-//     pass.value=storage;
-//     email.focus();
-//   } else {
-//     pass.focus();
-//   }
 })
 
 close.addEventListener("click", function (evt) {
@@ -26,7 +19,7 @@ close.addEventListener("click", function (evt) {
 });
 
 form.addEventListener("submit", (evt) => {
-  if (!pass.value || !email.value || pass.value) {
+  if (pass.value == "" || email.value == "") {
     evt.preventDefault();
     popup.classList.add("is-invalid");
     errorLogin.classList.add('alert-danger');

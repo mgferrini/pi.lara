@@ -25,9 +25,4 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    
-    public function prueba($p,$m)
-    {
-        return $p . $m;
-    }
 }

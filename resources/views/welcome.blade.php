@@ -79,10 +79,9 @@
                 </div>
             @endif
 
-
             <div class="content">
                 <div class="title m-b-md">
-                    <a href="{{ asset('home') }}">Laravel</a>
+                    Laravel
                 </div>
 
                 <div class="links">
@@ -94,17 +93,16 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
-				<hr>
-				<div class="links">
-				@foreach ($links as $link)
-					<a href="{{ $link->url }}">{{ $link->title }}</a>
-				@endforeach
-				</div>
-
             </div>
         </div>
-		
-		
-
     </body>
 </html>
+
+Breadcrumb de producto
+    <!--<li class="breadcrumb-item">
+                @foreach($categories as $category) 
+                    <a href="#">
+                    {{ ( $product->category_id == $category->id) ? $category->parentCategory->name : ''}}
+                    </a>
+                @enforeach  
+            </li> -->

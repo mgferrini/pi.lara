@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'accepted' => 'The :attribute must be accepted.',
+    'accepted' => 'Los :attribute deben ser aceptados.', //vale
     'active_url' => 'The :attribute is not a valid URL.',
     'after' => 'The :attribute must be a date after :date.',
     'after_or_equal' => 'The :attribute must be a date after or equal to :date.',
@@ -30,7 +30,7 @@ return [
         'array' => 'The :attribute must have between :min and :max items.',
     ],
     'boolean' => 'The :attribute field must be true or false.',
-    'confirmed' => 'The :attribute confirmation does not match.',
+    'confirmed' => 'No coinciden las contraseñas.', //vale
     'date' => 'The :attribute is not a valid date.',
     'date_equals' => 'The :attribute must be a date equal to :date.',
     'date_format' => 'The :attribute does not match the format :format.',
@@ -39,7 +39,7 @@ return [
     'digits_between' => 'The :attribute must be between :min and :max digits.',
     'dimensions' => 'The :attribute has invalid image dimensions.',
     'distinct' => 'The :attribute field has a duplicate value.',
-    'email' => 'The :attribute must be a valid email address.',
+    'email' => 'El :attribute no corresponde a una direccion de correo valida.', //vale
     'ends_with' => 'The :attribute must end with one of the following: :values',
     'exists' => 'The selected :attribute is invalid.',
     'file' => 'The :attribute must be a file.',
@@ -56,7 +56,7 @@ return [
         'string' => 'The :attribute must be greater than or equal :value characters.',
         'array' => 'The :attribute must have :value items or more.',
     ],
-    'image' => 'The :attribute must be an image.',
+    'image' => 'El :attribute debe ser una imagen', //vale
     'in' => 'The selected :attribute is invalid.',
     'in_array' => 'The :attribute field does not exist in :other.',
     'integer' => 'The :attribute must be an integer.',
@@ -85,9 +85,9 @@ return [
     'mimes' => 'The :attribute must be a file of type: :values.',
     'mimetypes' => 'The :attribute must be a file of type: :values.',
     'min' => [
-        'numeric' => 'The :attribute must be at least :min.',
+        'numeric' => 'La :attribute debe tener un mínimo de :min caracteres.', //vale
         'file' => 'The :attribute must be at least :min kilobytes.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'string' => 'La :attribute debe tener un mínimo de :min caracteres.', //vale
         'array' => 'The :attribute must have at least :min items.',
     ],
     'not_in' => 'The selected :attribute is invalid.',
@@ -95,7 +95,7 @@ return [
     'numeric' => 'The :attribute must be a number.',
     'present' => 'The :attribute field must be present.',
     'regex' => 'The :attribute format is invalid.',
-    'required' => 'The :attribute field is required.',
+    'required' => 'El campo :attribute debe estar completo.', //vale
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
     'required_with' => 'The :attribute field is required when :values is present.',
@@ -112,7 +112,7 @@ return [
     'starts_with' => 'The :attribute must start with one of the following: :values',
     'string' => 'The :attribute must be a string.',
     'timezone' => 'The :attribute must be a valid zone.',
-    'unique' => 'The :attribute has already been taken.',
+    'unique' => 'Usuario ya registrado.', //vale
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',

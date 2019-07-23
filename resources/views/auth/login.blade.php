@@ -1,73 +1,66 @@
-@extends('layouts.app')
+@extends ("layouts.plantilla")
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+@section("titulo")
+   Phi Organic - Login
+@endsection
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+@section ("principal")
+<div class="container-fluid">
+<br>
+  <section class="row">
+    <h1 class="regh1">Login</h1>
+  </section>
+  <section class="registro row">
+    <article class="form regformulario col-xs-12 col-md-8 col-lg-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="regtitulo">Usuario y Contraseña</h2><br>
+            </div>
+            <div class="panel-body">
+                <form accept-charset="UTF-8" role="form" method="post" action="{{ route('login') }}">
+                    @csrf
+                        <div class="form-group">
+                            <input class="form-control @error('email') is-invalid @enderror" placeholder="E-mail" name="email" type="text" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                        <div class="form-group">
+                            <input class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password" type="password" required autocomplete="current-password">
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
+                        <div class="checkbox"> 
+                            <input name="remember" type="checkbox" id="remember" {{ old('remember') ? 'checked' : '' }} > 
+                            <label class="form-check-label" for="remember">
+                                  {{ __('Recordarme') }}
+                            </label>  
                         </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                        <br>
+                        <input class="btn regboton" type="submit" value="Ingresar">
+                        <hr>
+                        <div class="forgot">
+                            @if (Route::has('password.request'))
+                            <a class="btn btn-link" href="{{ route('password.request') }}">
+                            {{ __('Olvide mi contraseña') }}
+                        </a>
+                         @endif
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
+    </article>
+    <article class="form regcolumna2 col-xs-12 col-md-4 col-lg-4">
+      <h2 class="regtitulo2">¿Acaso no estas registrado?</h2>
+      <p>Registrate para estar al tanto de las ultimas novedades acerca de los productos, los nuevos productos de Phi Organic, proximos lanzamientos y un monton de cosas mas.</p>
+      <br>
+      <a class="btn regboton" href="register">Registrarse</a>
+    </article>
+  </section>
 </div>
 @endsection

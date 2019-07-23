@@ -22,13 +22,6 @@
 .navuser:hover{
   color: #0bb791! important;
 }
-/*
-.navCont{
-  display:flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  padding-top: 0px;
-}*/
 .fa-user-plus{
   margin-left: 20px;
 }
@@ -38,25 +31,16 @@
   justify-content: flex-end;
   font-size: large;
 }
-/*
-.loginbar{
-  text-decoration: none;
-  padding: 0 20px;
-  color: black;
+.adminHeader{
+  margin-right: 20px;
 }
-.loginbar:hover{
-  color: #7ed957;
+.liBase{
+  align-items: baseline !important;
 }
-
-.loginbar1{
-  text-decoration: none;
-  margin: 0 20px;
-  color: black;
-  border: none !important;
+.fontHeader{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  color: #474645;
+  font-style: normal;
 }
-.loginbar1:hover{
-  color: #7ed957;
-}*/
-
-
-

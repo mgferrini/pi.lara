@@ -51,7 +51,6 @@
   transform: rotate(-45deg);
 }
 
-.formLogin .name,
 .formLogin .email {
   width: 220px;
   margin: 0 20px 0 0;
@@ -62,12 +61,12 @@
   margin: 0;
 }
 
-.formLogin fieldset {
+/* .formLogin fieldset {
   font-size: 0;
   border: none;
   padding: 0;
   margin: 0;
-}
+} */
 
 .formLogin label {
   display: block;
@@ -76,8 +75,7 @@
 }
 
 .formLogin input[type=text],
-.formLogin input[type=email],
-.formLogin textarea {
+.formLogin input[type=email] {
   width: 100%;
   margin: 0;
   padding: 8px 10px;
@@ -95,7 +93,7 @@
   clear: both;
 }
 
-.formLogin textarea {
+/* .formLogin textarea {
   color: #000;
   text-decoration: none;
 }
@@ -110,10 +108,9 @@
   margin: 0;
   background: #f1f1f1;
   color: #000;
-}
+} */
 
-.input-buttons [type=submit],
-.input-buttons [type=reset] {
+.input-buttons [type=submit] {
   display: block;
   width: 220px;
   margin: 0 20px 0 0;

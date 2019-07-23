@@ -48,16 +48,17 @@
                     <br>
                     <input class="btn regboton" type="submit" value="Ingresar">
                     <hr>
-                    <div class="forgot">
+                    <div class="forgot text-center">
                         @if (Route::has('password.request'))
                         <a class="btn btn-link" href="{{ route('password.request') }}">
                         {{ __('Olvide mi contraseña') }}
                     </a>
                      @endif
-                     <div class="test">¿Acaso no estas registrado?<br>
+                   </div>
+                   <hr>
+                     <div class="text-center">¿Acaso no estas registrado?<br>
                        <a class="btn regboton" href="register">Registrate</a>
                      </div>
-                   </div>
                  </form>
                </li>
              @else

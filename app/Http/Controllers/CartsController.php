@@ -97,6 +97,20 @@ class CartsController extends Controller
                 return view('/ventas/carritoGuest');
             }
         
+            public function actualizar(Request $request)
+            {
+                $nuevo= $request->products;
+                foreach($nuevo as $product){
+                 $viejo= (session()->get('user.cart.' . $product["id"]));
+
+                (session()->pull('user.cart.' . $product["id"]));
+                $viejo['quantity']=$product['quantity'];
+                session()->put("user.cart." . $product["id"], $viejo);
+
+                }
+              
+                return view('/ventas/carritoGuest');
+            }
 
         }
 

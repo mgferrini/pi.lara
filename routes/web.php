@@ -65,3 +65,4 @@ Route::post('/contacto', function (){
   Route::get('carritoGuest/{id}', "CartsController@addGuest")->name('carritoGuest.add');//->middleware('auth');
 //Carrito de compras elimino productos 
   Route::get('carritoGuest/remove/{id}', "CartsController@removeGuest")->name('cart.remove');//->middleware('auth');
+  Route::post('/actualizar', 'CartsController@actualizar'); 

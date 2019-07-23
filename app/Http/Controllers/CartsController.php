@@ -74,8 +74,7 @@ class CartsController extends Controller
                     'quantity' => $cantidad,
                     'subtotal' => $product->price * $cantidad,
               ];
-//dd($product['subtotal']);
-          
+             
                session()->put("user.cart." . $id, $product);
 
                return view('/ventas/carritoGuest' );
@@ -83,6 +82,8 @@ class CartsController extends Controller
 
             public function showGuest()
             {
+            //   $cart = session()->get('user.cart');
+            
                 return view('/ventas/carritoGuest');
             }
 
@@ -101,11 +102,11 @@ class CartsController extends Controller
             {
                 $nuevo= $request->products;
                 foreach($nuevo as $product){
-                 $viejo= (session()->get('user.cart.' . $product["id"]));
+                 $actual= (session()->get('user.cart.' . $product["id"]));
 
                 (session()->pull('user.cart.' . $product["id"]));
-                $viejo['quantity']=$product['quantity'];
-                session()->put("user.cart." . $product["id"], $viejo);
+                $actual['quantity']=$product['quantity'];
+                session()->put("user.cart." . $product["id"], $actual);
 
                 }
               

@@ -31,7 +31,7 @@
           <td><input name="products[{{$product['id']}}][id]" type="hidden"   value="{{$product['id']}}" > </td> 
           <td><input name="products[{{$product['id']}}][price]" type="text" class="form-control price" id="price{{$product['id']}}" value="{{$product['price']}}" readonly> </td>
          <td><input name="products[{{$product['id']}}][quantity]" min="1" item={{$product['id']}} id="quantity{{$product['id']}}"  class="form-control cant quantity" type="number" value="{{$product['quantity']}}"  /></td>  <!-- No toma cuando le pongo value=  $product['quantity']-->
-         <td><input name="products[{{$product['id']}}][subTotal]" type="text" class="form-control subTotal" id="subTotal{{$product['id']}}" value="{{$product['subtotal']}}"></td>
+         <td><input name="products[{{$product['id']}}][subTotal]" type="text" class="form-control subTotal" id="subTotal{{$product['id']}}" data-qty="{{$product['id']}}" value="{{$product['subtotal']}}"></td>
          <td class="text-right"><a href='{{route('cart.remove', $product['id'])}}' class="btn btn-sm btn-secondary"><i class="fa fa-trash"></i> </a> </td>
         </tr>
       </tr>
@@ -54,15 +54,16 @@
           <th scope="col" class="ColTitle"></th>
           <th scope="col" class="ColTitle"></th>
           <th scope="col" class="ColTitle"></th>
-          <th scope="col" class="ColTitle"><div id="sum"></div> </th>
+          <th scope="col" class="ColTitle"><div id="sumTotal"></div> </th>
           <th scope="col" class="ColTitle"></th>
         </tr>
       </thead>
     </tbody>
   </table>
+
   <br><br>
   <div class="form-row botones">
-  <button class="botAdmin" type="submit" id="eventBoton">Actualizar Carrito</button>
+  <button class="botAdmin" type="submit" id="eventBoton" onclick="sum()">Actualizar Carrito</button>
   </form>
   &nbsp &nbsp &nbsp &nbsp &nbsp
   <button class="botAdmin"> <a href="/">Seguir Comprando</a></button> 

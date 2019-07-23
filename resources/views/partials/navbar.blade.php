@@ -30,7 +30,7 @@
                         <form class="form-inline my-2 my-lg-0" action="{{url('/searchResults')}}" method="post">
                           @csrf
                           <input class="form-control mr-sm-1 icon iconnav bordernav" type="search" placeholder="" aria-label="Search" name="data">
-                          <a class="fas fa-search nav-item fa-lg icon iconnav" type="submit"></a>
+                          <button class="fas fa-search nav-item fa-lg icon iconnav" type="submit"></button>
                         </form>
                     </li>
             </ul>

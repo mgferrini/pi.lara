@@ -19,19 +19,23 @@ class PerfilController extends Controller
 }
 
 
-public function update(Request $request, \App\User $user)
+public function update(Request $request, \App\User $id)
 {
-
+    
     $this->validate($request, $this->getValidationRulesEdit(), $this->mensajes()); 
+
+    $user = User::find($id);
+    /*
     if($request->file("avatar") == null){
-        $user->first_name = request('first_name');
-        $user->last_name = request('last_name');
-        $user->email = request('email');
-        $user->password = bcrypt(request('password'));
+
+        $user->first_name = $request->input("first_name");
+        $user->last_name = $request->input('last_name');
+       $user->email = $request->input('email');
+        $user->password = bcrypt($request->input('password'));
 
         $user->save();
         return redirect('/'); 
-    }
+    }*/
  
     $ruta = $request->file("avatar")->store('public/avatars');
     $nombreArchivo= basename($ruta);
@@ -41,6 +45,21 @@ public function update(Request $request, \App\User $user)
     $user->update($edit);
     return redirect('/'); 
 }
+
+/* Asi lo tiene Dani pero no funciona 
+$user = User::find($id);
+$user->first_name = $request->input("first_name");
+$user->last_name = $request->input("last_name");
+$path = $request->file('avatar');
+if (!is_null($path)) {
+    $path->storeAs('public/avatars', 'avatar'.$request->user()->id);
+    $user->avatar = 'storage/avatars/avatar'.$request->user()->id;
+}
+$user->save();
+
+return redirect('/'); 
+}*/
+
 private function getValidationRulesEdit() 
 {
     return [

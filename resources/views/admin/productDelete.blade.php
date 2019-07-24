@@ -34,7 +34,7 @@ Phi Organic -  Admin
                                     <aside class="col-sm-4">
                                         <article class="gallery-wrap"> 
                                             <div class="img-big-wrap">
-                                                <div> <a href=""><img src=  {{ asset('img/' . $product->image) }} class="imgDel"></a></div>
+                                                <div> <a href=""><img src=  {{ asset('storage/products/' . $product->image) }} class="imgDel"></a></div>
                                             </div> <!-- slider-product.// -->
                                         </article> <!-- gallery-wrap .end// -->
                                     </aside>

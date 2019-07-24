@@ -18,85 +18,92 @@
                 </div>
                 <form class="formLogin" accept-charset="UTF-8" role="form" action="{{ route('login') }}" method="post">
                   @csrf
-                    <a class="formLogin-close"></a>
-                    <div class="panel-heading">
-                      <h2 class="regtitulo">Usuario y Contraseña</h2><br>
-                    </div>
-                    <div id="errorLogin"></div>
-                    <div class="form-group">
-                      <input class="form-control @error('email') is-invalid @enderror" placeholder="E-mail" name="email" type="text" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                  <a class="formLogin-close"></a>
+                  <div class="panel-heading">
+                    <h2 class="regtitulo">Usuario y Contraseña</h2><br>
+                  </div>
+                  <div id="errorLogin"></div>
+                  <div class="form-group">
+                    <input class="form-control @error('email') is-invalid @enderror" placeholder="E-mail" name="email" type="text" value="{{ old('email') }}" required autocomplete="email" autofocus>
                       @error('email')
-                      <span class="invalid-feedback" role="alert">
+                        <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
-                      </span>
+                        </span>
                       @enderror
                     </div>
                     <div class="form-group">
                       <input class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password" type="password" required autocomplete="current-password">
-                      @error('password')
-                      <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                      </span>
-                      @enderror
-                    </div>
-                    <div class="checkbox">
+                        @error('password')
+                          <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
+                      </div>
+                      <div class="checkbox">
                         <input name="remember" type="checkbox" id="remember" {{ old('remember') ? 'checked' : '' }} >
                         <label class="form-check-label" for="remember">
-                              {{ __('Recordarme') }}
+                          {{ __('Recordarme') }}
                         </label>
-                    </div>
-                    <br>
-                    <input class="btn regboton" type="submit" value="Ingresar">
-                    <hr>
-                    <div class="forgot text-center">
+                      </div>
+                      <br>
+                      <input class="btn regboton" type="submit" value="Ingresar">
+                      <hr>
+                      <div class="forgot text-center">
                         @if (Route::has('password.request'))
-                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                        {{ __('Olvide mi contraseña') }}
+                          <a class="btn btn-link" href="{{ route('password.request') }}">
+                            {{ __('Olvide mi contraseña') }}
+                          </a>
+                        @endif
+                      </div>
+                      <hr>
+                      <div class="text-center">¿Acaso no estas registrado?<br>
+                        <a class="btn regboton" href="register">Registrate</a>
+                      </div>
+                    </form>
+
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route('carritoGuest')}}">
+                      <i class="fas fa-shopping-basket fa-md icon navcart"></i>
                     </a>
-                     @endif
-                   </div>
-                   <hr>
-                     <div class="text-center">¿Acaso no estas registrado?<br>
-                       <a class="btn regboton" href="register">Registrate</a>
-                     </div>
-                 </form>
-               </li>
-             @else
-              <p>
-                <img height="35" width="35" class="img-fluid rounded-circle" src="{{ asset('storage/avatars/' . auth()->user()->avatar) }}">
-                <span class="fontHeader">Hola {{ Auth::user()->first_name }}</span>
-              </p>
-              <li class="nav-item dropdown">
-                <a class="nav-link navflecha dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-user-plus fa-md icon"></i>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="/perfil/{{ Auth::user()->id }}"><i class="navuser">{{ __('Editar Perfil') }}</i></a>
-                  <a class="dropdown-item" href="{{ route('logout') }}"
-                  onclick="event.preventDefault();
-                  document.getElementById('logout-form').submit();">
-                  <i class="navuser">{{ __('Logout') }}</i>
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                  @csrf
-                </form>
-              </div>
-            </li>
-            @if(Auth::user()->role === "2")
-              <li class="nav-item">
-                <a class="adminHeader" href="/adminProducts">
-                  <span class="fontHeader">Admin</span>
-                </a>
-              </li>
-            @endif
-          @endguest
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="fas fa-shopping-basket fa-md icon navcart"></i>
-            </a>
-          </li>
-        </ul>
+                  </li>
+                @else
+                  <p>
+                    <img height="35" width="35" class="img-fluid rounded-circle" src="{{ Storage::url('public/avatars/' . auth()->user()->avatar) }}">
+                    <span class="fontHeader">Hola {{ Auth::user()->first_name }}</span>
+                  </p>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link navflecha dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-user-plus fa-md icon"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="/profile"><i class="navuser">{{ __('Editar Perfil') }}</i></a>
+                      <a class="dropdown-item" href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+                      <i class="navuser">{{ __('Logout') }}</i>
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                    </form>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/carrito/{{Auth::user()->id }}">
+                    <i class="fas fa-shopping-basket fa-md icon navcart"></i>
+                  </a>
+                </li>
+                @if(Auth::user()->role === "2")
+                  <li class="nav-item">
+                    <a class="adminHeader" href="/adminProducts">
+                      <span class="fontHeader">Admin</span>
+                    </a>
+                  </li>
+                @endif
+              @endguest
+
+            </ul>
+          </div>
+        </nav>
       </div>
-    </nav>
-  </div>
-</div>
+    </div>

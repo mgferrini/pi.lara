@@ -29,8 +29,9 @@
                     <span class="priceCat">{{'$ ' . $product->price}}</span>
                     <p class="parrafo">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sed suscipit dolorem.</p>
                     @guest
-                    <form class="form-inline my-2 my-lg-0" action="{{ route('login') }}" method="">
+                    <form class="form-inline my-2 my-lg-0" action="/carritoGuest/{{$product->id}}" method="">
                         @csrf
+                        <input type="hidden" name="quantity" value="1"> 
                         <input  type="submit"  class="btn botcarrito" value="Agregar al carrito">
                         <br>
                         </form> 

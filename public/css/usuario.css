@@ -1,5 +1,3 @@
-/* Pagina de Registro, Login y Perfil*/
-
 /* Login Popup ? */
 .formLogin {
   display: none;
@@ -97,13 +95,11 @@
   color: #000;
   text-decoration: none;
 }
-
 .formLogin textarea {
   display: block;
   min-height: 115px;
   resize: none;
 }
-
 .input-buttons input[type=reset] {
   margin: 0;
   background: #f1f1f1;
@@ -126,152 +122,145 @@
   cursor: pointer;
 }
 
+/* Pagina de Registro, Login y Perfil*/
 .regformulario{
-  background-color: #cbdbd2;
-  padding-bottom: 20px;
-  padding-top:20px;
+    background-color: #cbdbd2;
+    padding-bottom: 20px;
+    padding-top:20px;
 }
-
 .regcolumna{
-  background-color: whitesmoke;
-  border-right: solid white 20px;
-  padding-top:20px;
-  padding-bottom: 20px;
+    background-color: whitesmoke;
+    border-right: solid white 20px;
+    padding-top:20px;
+    padding-bottom: 20px;
 }
-
 .regcolumna2{
-  background-color: whitesmoke;
-  border-left: solid white 20px;
-  padding-top:20px;
-  padding-bottom: 20px;
+    background-color: whitesmoke;
+    border-left: solid white 20px;
+    padding-top:20px;
+    padding-bottom: 20px;
 }
-
 .regh1{
-  font-size: 18px;
-  color: #474645   ;
-  font-family: 'Lato', sans-serif;
-  width:100%;
-  text-align: right;
-  text-transform: uppercase;
-  border-bottom: solid 1px #cbdbd2;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+    font-size: 18px;
+    color: #474645   ;
+    font-family: 'Lato', sans-serif;
+    width:100%;
+    text-align: right;
+    text-transform: uppercase;
+    border-bottom: solid 1px #cbdbd2;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
-
 .regtitulo{
-  font-size: 22px;
-  color: #474645;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+    font-size: 22px;
+    color: #474645;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
 }
-
 .regboton{
-  background-color:#ABB2B9 ;
-  color: white;
-  font-size: 16px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
+    background-color:#ABB2B9 ;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
 }
-
 .regtitulo2{
-  font-size: 22px;
-  color: #474645  ;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+    font-size: 22px;
+    color: #474645  ;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
 }
-
-input:hover{
-  border: black 1px solid;
-}
-
+ input:hover{
+    border: black 1px solid;
+} 
 .regimg{
-  width: 100%;
-  margin-top: 10px;
+    width: 100%;
+    margin-top: 10px;
 }
-
 .regTextoImagen{
-  text-align: center,
+    text-align: center,
 }
-
 .regSubirAvatar{
-  margin-top: 10px;
-  margin-bottom: 15px;
-  width:50%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width:50%;
 }
-
 .regboton:hover{
-  background-color: white ;
-  color: #0bb791;
-  border: solid 1px  #0bb791;
+    background-color: white ;
+    color: #0bb791;
+    border: solid 1px  #0bb791;
 }
-
 /* FAQ */
 .banner1{
-  background-image: url(../img/soap_0053.jpg);
-  height: 40vh;
-  background-size: cover;
-  text-align: center;
-  padding: 80px;
-  background-position: center;
-  width: 100%;
-  margin-bottom: 50px;
-}
-
-.titulocursiva{
-  font-family: 'Pinyon Script', cursive;
-  font-weight: 400px;
-  font-size: 60px;
-  color: #0bb791;
-  z-index: 2;
-}
-
-.tituloppal{
-  font-family: 'Lato', sans-serif;
-  font-size: 26px;
-  margin-top: -30px;
-  color: white;
-}
-
-.faqpreg{
-  font-size: 18px;
-  color: #474645;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-}
-
-.faqpreg:hover{
-  color: #0bb791;
-  text-decoration: none;
-}
-
+    background-image: url(../img/soap_0053.jpg);
+    height: 40vh;
+    background-size: cover;
+    text-align: center;
+    padding: 80px;
+    background-position: center;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  .titulocursiva{
+    font-family: 'Pinyon Script', cursive;
+    font-weight: 400px;
+    font-size: 60px;
+    color: #0bb791;
+    z-index: 2;
+  }
+  .tituloppal{
+    font-family: 'Lato', sans-serif;
+    font-size: 26px;
+    margin-top: -30px;
+    color: white;
+  }
+  .faqpreg{
+    font-size: 18px;
+    color: #474645;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+  }
+  .faqpreg:hover{
+    color: #0bb791;
+    text-decoration: none;
+  }
 .faqresp{
-  font-size: 18px;
-  color: #0bb791;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-}
+        font-size: 18px;
+        color: #0bb791;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+      }
 
-/* Quienes Somos */
+      /* Quienes Somos */
 .banner_somos{
-  background-image: url(../img/banner6.jpg);
-  height: 40vh;
-  background-size: cover;
-  text-align: center;
-  padding: 80px;
-  background-position: center;
-  width: 100%;
-  margin-bottom: 50px;
-}
-
-.section_subtitle {
-  font-size: 11px;
-  font-weight: 600;
-  color: #838383;
-  line-height: 0.75;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-top: 23px;
-}
-
+    background-image: url(../img/banner6.jpg);
+    height: 40vh;
+    background-size: cover;
+    text-align: center;
+    padding: 80px;
+    background-position: center;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  
+  .section_subtitle {
+    font-size: 11px;
+    font-weight: 600;
+    color: #838383;
+    line-height: 0.75;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 23px;
+  }
+  
 /* hay qye hacer media query para que el titulo ppal y el titulo en cursiva no se muestren en mobile */
 /* hay que hacer media query para que la foto del jabon de registro no se muestre en moblile */
+
+
+.verde{
+  background-color: gray !important;
+  color: white;
+}
+.sobre{
+  padding-top: 10px;
+}

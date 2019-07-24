@@ -24,13 +24,13 @@
     
           <th scope="row"><a href="/product/{{$product->product_id}}"><img class="miniatura" src="{{ asset('storage/products/' . $product->productos->image) }}"></a></th>
           <td><a href="/product/{{$product->product_id}}">{{$product->productos->name}}</a></td>
-          <td>{{$product->price}}</td>
-          <td>{{$product->quantity}}</td>
-          <td>{{$product->quantity * $product->price}}</td>
+          <td><div class="price">${{$product->price}}</div></td>
+          <td><div class="quantity">{{$product->quantity}}</div></td>
+          <td><div class="mult">${{$product->quantity*$product->price}}</div></td>
             <form class="" action="/cartDel/{{$product->id}}/{{Auth::user()->id }}" method="post">
             @csrf
             {{ method_field('DELETE') }}
-            <td>  <input class="" type="submit"  value="Eliminar"></td>
+            <td class="text-center"> <button class="btn btn-sm btn-secondary" type="submit"><i class="fa fa-trash"></i></button></td>
           </form>
       </tr>
       @endforeach
@@ -40,7 +40,7 @@
           <th scope="col" class="ColTitle">TOTAL</th>
           <th scope="col" class="ColTitle"></th>
           <th scope="col" class="ColTitle"></th>
-          <th scope="col" class="ColTitle">{{$totalAcumulado}}</th>
+          <th scope="col" class="ColTitle">${{$totalAcumulado}}</th>
           <th scope="col" class="ColTitle"></th>
         </tr>
       </thead>

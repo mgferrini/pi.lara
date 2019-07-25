@@ -12,8 +12,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(CategoryTableSeeder::class);
-        $this->call(ProductTableSeeder::class);
 
+        $this->call(ProductTableSeeder::class);
+       
       		
 			DB::table('users')->insert([
                 'first_name' => 'Marcos',
@@ -50,5 +51,8 @@ class DatabaseSeeder extends Seeder
             'role' => '1',
             'avatar' => '8zlz2iOQplIhJukCC55wYm3nrR8QqMIU1VJM4Tpv.jpeg',
           ]);
+
+       
+
     }
 }

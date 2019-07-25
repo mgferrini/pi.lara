@@ -24,7 +24,7 @@
 		<article class="regcolumna col-xs-12 col-md-4 col-lg-4">
 			<h2 class="regtitulo2"> ¿Ya tenés cuenta?</h2>
 			<br>
-			<a class="btn regboton" href="login" role="button">Ingresar</a>
+			<a class="btn regboton loginButton" href="{{ url('login') }}" role="button">Ingresar</a>
 			<br><br>
 			<img src="img/soapreg2.png" alt="jabon_arte" class="regimg">
 		</article>

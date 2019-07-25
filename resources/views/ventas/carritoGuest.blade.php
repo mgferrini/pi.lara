@@ -18,7 +18,7 @@
         <th scope="col" class="ColTitle">Remover</th>
       </tr>
     </thead>
-    <tbody class="regcarrito">
+    <tbody class="regcarrito" id="regcarrito">
        
             @if (session()->get('user.cart') !== null )
       <tr >
@@ -36,7 +36,7 @@
         </tr>
       </tr>
       @endforeach
-  
+    </tbody>
       @endif
       <tr >
       <th> </th>
@@ -47,7 +47,7 @@
           <td> </td>
         </tr>
 
-      <thead class="tableTotal">
+      <tfoot class="tableTotal">
           <tr>
           <th scope="col"></th>
           <th scope="col" class="ColTitle">TOTAL</th>
@@ -57,8 +57,8 @@
           <th scope="col" class="ColTitle"><div id="sumTotal"></div> </th>
           <th scope="col" class="ColTitle"></th>
         </tr>
-      </thead>
-    </tbody>
+      </tfoot>
+  
   </table>
 
   <br><br>

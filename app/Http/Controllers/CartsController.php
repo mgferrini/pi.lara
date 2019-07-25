@@ -82,8 +82,14 @@ class CartsController extends Controller
 
             public function showGuest()
             {
-            //   $cart = session()->get('user.cart');
-            
+          /*  $totalAcumulado= 0;
+             $cart = session()->get('user.cart');
+             foreach($cart as $key){
+                 foreach($key as $value){
+                    $totalAcumulado = $totalAcumulado + [$value => 'subtotal'];
+                 } return $totalAcumulado;
+             }
+            dd($totalAcumulado);*/
                 return view('/ventas/carritoGuest');
             }
 

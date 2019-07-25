@@ -36,6 +36,10 @@ Route::get('/nosotros', function () {
     return view('nosotros');
 });
 
+Route::get('/profile', "UserController@edit")->name("profile")->middleware('auth');
+Route::post('/profile', "UserController@update")->middleware('auth');
+
+
 Route::get('/fin', 'CartsController@theEnd') ->middleware('auth');
 Route::get('/perfil/{id}', 'PerfilController@show') ;
 Route::patch('/perfil/{id}', 'PerfilController@update'); 
@@ -66,3 +70,4 @@ Route::post('/contacto', function (){
 //Carrito de compras elimino productos 
   Route::get('carritoGuest/remove/{id}', "CartsController@removeGuest")->name('cart.remove');//->middleware('auth');
   Route::post('/actualizar', 'CartsController@actualizar'); 
+  

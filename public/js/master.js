@@ -1,6 +1,7 @@
 window.onload=function(){
 
-
+filas= document.getElementById("regcarrito").rows.length;
+console.log(filas);
 
 $(document).ready(function(){
   $(".quantity").change(function(){
@@ -21,11 +22,15 @@ $(document).ready(function(){
 
 //esto agrego Vale pero no funciona
 
-      var table = document.getElementById("miTabla"), 
-      sumVal = 0;   
-      for(var i = 0; i < table.rows.length; i++)
+      var table = document.getElementById("regcarrito");
+      sumVal = 0; 
+      
+     // console.log(table);
+
+      for(var i = 0; i < filas; i++)
       {
-          sumVal = sumVal + subtotal;
+  console.log(table.rows[i].cells[5].getAttribute("value"));
+         // sumVal = sumVal + parseInt(table.rows[i].cells[5].innerHTML);
       }
       document.getElementById("sumTotal").innerHTML = sumVal;
       console.log(sumVal);

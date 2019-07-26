@@ -10,6 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('install', function(){
+  Artisan::call("storage:link");
+  return redirect("/");
+});
 
 Route::get('/', function () {
     return view('phiorganic');
@@ -42,7 +46,7 @@ Route::post('/profile', "UserController@update")->middleware('auth');
 
 Route::get('/fin', 'CartsController@theEnd') ->middleware('auth');
 Route::get('/perfil/{id}', 'PerfilController@show') ;
-Route::patch('/perfil/{id}', 'PerfilController@update'); 
+Route::patch('/perfil/{id}', 'PerfilController@update');
 Route::get("/product/{id}", "ProductsController@show");
 Route::get("/category/{id}", "CategoriesController@show");
 Route::get("/adminProducts", "ProductsController@index")->middleware('auth', 'role:admin');
@@ -53,10 +57,10 @@ Route::delete('/admin/{product}', 'ProductsController@destroy')->middleware('aut
 Route::get("/editProduct/{id}", "ProductsController@edit")->middleware('auth', 'role:admin');
 Route::patch('/admin/{product}', 'ProductsController@update')->middleware('auth', 'role:admin');
 Route::post('/searchResults', 'HomeController@search');
-Route::post('/carrito/{id}/{user}', 'CartsController@addOne'); 
-Route::get('/carrito/{id}', 'CartsController@show') ; 
-Route::delete('/cartDel/{product}/{id}', 'CartsController@destroy') ; 
-Route::post('/cart/{id}/{user}', 'CartsController@addMany'); 
+Route::post('/carrito/{id}/{user}', 'CartsController@addOne');
+Route::get('/carrito/{id}', 'CartsController@show') ;
+Route::delete('/cartDel/{product}/{id}', 'CartsController@destroy') ;
+Route::post('/cart/{id}/{user}', 'CartsController@addMany');
 Route::get('/contacto', function () {
     return view('contacto');
 });
@@ -67,7 +71,6 @@ Route::post('/contacto', function (){
   //Carrito del Guest
   Route::get('/carritoGuest', 'CartsController@showGuest')->name('carritoGuest');//->middleware('auth');
   Route::get('carritoGuest/{id}', "CartsController@addGuest")->name('carritoGuest.add');//->middleware('auth');
-//Carrito de compras elimino productos 
+//Carrito de compras elimino productos
   Route::get('carritoGuest/remove/{id}', "CartsController@removeGuest")->name('cart.remove');//->middleware('auth');
-  Route::post('/actualizar', 'CartsController@actualizar'); 
-  
+  Route::post('/actualizar', 'CartsController@actualizar');
